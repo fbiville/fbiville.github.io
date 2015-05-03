@@ -1,8 +1,11 @@
-# New blog
+# New blog!
 
 Getting rid of Dotclear was long overdue.
 Impractical at best, I wasted way too much time polishing the contents so that it would not render too bad.
 
-# What's next?
+## What's next?
 
 I need to automate the migration to HubPress, so it will take some more time before all my blog posts show up here.
+For now, http://florent.biville.net[] is still serving my old blog. 
+
+It's just a matter of time before everything is fully set up ;)
