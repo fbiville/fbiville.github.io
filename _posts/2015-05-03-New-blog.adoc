@@ -1,0 +1,8 @@
+# New blog
+
+Getting rid of Dotclear was long overdue.
+Impractical at best, I wasted way too much time polishing the contents so that it would not render too bad.
+
+# What's next?
+
+I need to automate the migration to HubPress, so it will take some more time before all my blog posts show up here.
