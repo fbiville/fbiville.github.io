@@ -1,0 +1,81 @@
+ +
+
+Assertwhat?
+~~~~~~~~~~~
+
+AssertJ-Neo4j is an AssertJ module. AssertJ aims at making tests more
+concise and readable, by providing a set of rich and broad assertions.
+They are, at the time of writing, broken down into three modules:
+* https://github.com/joel-costigliola/assertj-core[AssertJ-core]:
+ assertions focused on JDK structures
+* https://github.com/joel-costigliola/assertj-guava[AssertJ-Guava]:
+assertions for some structures bundled with
+https://code.google.com/p/guava-libraries/[Guava]
+*
+https://github.com/joel-costigliola/assertj-joda-time[AssertJ-Joda-Time]:
+assertions for the Java http://www.joda.org/joda-time/[date and time
+API] written by Stephen Colebourne
+
+And affiliated with:
+*
+https://github.com/joel-costigliola/assertj-assertions-generator[AssertJ-generator-plugin]:
+generate your own custom assertions! (check
+https://github.com/joel-costigliola/assertj-assertions-generator-maven-plugin[the
+Maven plugin] out!)
+*
+https://github.com/joel-costigliola/assertj-examples[AssertJ-examples]:
+a project aggregating all modules and plugins, showing concrete examples
+of use
+
+This may seem familiar to some of you, for a reason. AssertJ is actually
+a fork of Fest-Assert, initiated almost a year ago by
+https://twitter.com/JoCosti[Joël Costigliola], long-time committer to
+Fest-Assert. While it shares many similarities, AssertJ brings some
+novelties as well.
+Be sure to check the repositories and various examples on the Interwebz.
+ +
+ +
+
+AssertJ-Neo4J!
+~~~~~~~~~~~~~~
+
+Neo4j embeds an
+http://docs.neo4j.org/chunked/stable/tutorials-java-unit-testing.html["impermanent
+graph database"] which definitely helps writing short and efficient
+integration tests. However, there is still some boilerplate up to the
+people to write. That's exactly
+when https://github.com/joel-costigliola/assertj-neo4j[AssertJ-Neo4j] comes
+to the rescue.
+As you can see
+from https://github.com/joel-costigliola/assertj-examples[AssertJ-examples],
+Assert-Neo4j will help you write concise and elegant assertions on
+http://api.neo4j.org/current/org/neo4j/graphdb/Node.html[Node],
+http://api.neo4j.org/current/org/neo4j/graphdb/Relationship.html[Relationship] (and
+their common part:
+http://api.neo4j.org/current/org/neo4j/graphdb/PropertyContainer.html[PropertyContainer])
+and http://api.neo4j.org/current/org/neo4j/graphdb/Path.html[Path].
+Feel free to check the examples
+https://github.com/joel-costigliola/assertj-examples/tree/master/src/test/java/org/assertj/examples/neo4j[here].
+ +
+ +
+
+Grab it while it's hot!
+~~~~~~~~~~~~~~~~~~~~~~~
+
+ +
+
+image:/blog/public/.AssertJ_m.png[AssertJ_1.0.0,title="AssertJ_1.0.0, Jan 2014"]
+ +
+ +
+
+While I already have some plans to provide better assertions on
+collections of Node/Relationship, I am very eager to gather your
+feedback on this.
+Feel free to send suggestions on
+https://github.com/joel-costigliola/assertj-neo4j/issues[Github] or ping
+me on https://twitter.com/fbiville[Twitter]!
+ +
+ +
+
+HAPPY NEW YEAR! :-)
+~~~~~~~~~~~~~~~~~~~

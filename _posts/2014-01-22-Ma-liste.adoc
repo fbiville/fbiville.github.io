@@ -1,0 +1,39 @@
+image:http://pfilliatre.free.fr/images/images_musique/liszt.jpg[image]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La liste
+~~~~~~~~
+
+* Éric Bottard
+* David Gageot
+* Pierre-Yves Ricau
+* Ugo Bourdon
+* Aurélien Thieriot
+* Samuel Jamier (j'ai triché, il est juste un webdesigner/intégrateur
+hors pair)
+* Jean-Baptiste Lemée
+* Joel Costigliola
+* Laurent Bossavit
+
+Un grand grand merci à vous tous.
+
+Mes critères
+~~~~~~~~~~~~
+
+Même si j'ai travaillé avec la majorité des gens listés ci-dessus, les
+seuls critères vraiment décisifs sont que :
+
+* les développeurs listés détiennent la nationalité française (j'ai
+repris la contrainte initiale) *
+* ces personnes m'ont fait prendre conscience d'un aspect (voire de
+beaucoup ;-)) de notre métier de développeur / rôle de prestataire
+* ou elles ont réussi à me faire changer d'orientation ou d'avis sur des
+sujets auxquels j'avais déjà fait face.
+
+* sans cette restriction, j'aurais sans doute ajouté Gary Bernhardt
+entr'autres.
+
+Bref
+~~~~
+
+ENCORE MERCI !

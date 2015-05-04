@@ -1,0 +1,12 @@
+As you might know, I have been spending
+http://lescastcodeurs.com/2013/05/04/les-cast-codeurs-podcast-episode-78-interview-sur-neo4j-avec-florent-biville/[some]
+http://parleys.com/play/517ae48ee4b0736a5fa66a1e/chapter0/about[time]
+advocating for http://docs.neo4j.org/[Neo4J] graph database. However,
+for various reasons and although I attended various conferences or
+meetups to spread my graphista love : **I DID NOT BLOG ABOUT IT**!
+
+Dear reader, it is more than time I fix this. So yeah, let's start and
+let's:
+
+Install!
+--------
