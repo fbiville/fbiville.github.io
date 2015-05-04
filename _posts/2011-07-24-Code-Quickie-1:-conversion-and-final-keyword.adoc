@@ -1,3 +1,4 @@
+# Code Quickie #1: conversion and final keyword
 As you know, the `final` keyword serves several purposes:
 
 * a class or method declared final cannot be overridden (this is not a

@@ -1,3 +1,4 @@
+# Slideshow with HTML5
 When you hear slideshow, you probably think of Javascript, maybe via
 http://en.wikipedia.org/wiki/List_of_JavaScript_libraries[your favorite
 framework] or http://eloquentjavascript.net/[not].

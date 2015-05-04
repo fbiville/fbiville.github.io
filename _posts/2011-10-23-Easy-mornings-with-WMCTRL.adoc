@@ -1,3 +1,4 @@
+# Easy mornings with WMCTRL
 Starting your IDE in workspace 2, opening a console in workspace 3, your
 mail client in workspace 8, updating your project sources...
 

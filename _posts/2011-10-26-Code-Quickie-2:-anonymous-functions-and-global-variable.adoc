@@ -1,3 +1,4 @@
+# Code Quickie #2: anonymous functions and global variable
 Teh code
 ~~~~~~~~
 
