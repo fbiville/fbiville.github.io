@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Ne remets pas à deux mains ce que tu peux faire à quatre</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//fbiville.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fbiville.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html" />
+    
+    <meta property="og:site_name" content="(10 piece) Puzzler" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Ne remets pas à deux mains ce que tu peux faire à quatre" />
+    <meta property="og:description" content="Comme tout le monde, j&amp;#8217;avais déjà entendu parler de TDD. La première fois que j&amp;#8217;y ai été confronté fut lors de mon entretien d&amp;#8217;embauche pour la société que j&amp;#8217;ai rejoint ensuite : Lateral..." />
+    <meta property="og:url" content="https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html" />
+    <meta property="article:published_time" content="2012-02-25T23:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-05-04T12:46:49.534Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ne remets pas à deux mains ce que tu peux faire à quatre" />
+    <meta name="twitter:description" content="Comme tout le monde, j&amp;#8217;avais déjà entendu parler de TDD. La première fois que j&amp;#8217;y ai été confronté fut lors de mon entretien d&amp;#8217;embauche pour la société que j&amp;#8217;ai rejoint ensuite : Lateral..." />
+    <meta name="twitter:url" content="https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "(10 piece) Puzzler",
+    "author": {
+        "@type": "Person",
+        "name": "@fbiville",
+        "image": "https://avatars.githubusercontent.com/u/445792?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://florent.biville.net"
+    },
+    "headline": "Ne remets pas à deux mains ce que tu peux faire à quatre",
+    "url": "https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html",
+    "datePublished": "2012-02-25T23:00:00.000Z",
+    "dateModified": "2015-05-04T12:46:49.534Z",
+    "description": "Comme tout le monde, j&amp;#8217;avais déjà entendu parler de TDD. La première fois que j&amp;#8217;y ai été confronté fut lors de mon entretien d&amp;#8217;embauche pour la société que j&amp;#8217;ai rejoint ensuite : Lateral..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="(10 piece) Puzzler" href="https://fbiville.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://fbiville.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://fbiville.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Ne remets pas à deux mains ce que tu peux faire à quatre</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2012-02-26">26 February 2012</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Comme tout le monde, j&#8217;avais déjà entendu parler de TDD. La première
+fois que j&#8217;y ai été confronté fut lors de mon entretien d&#8217;embauche pour
+la société que j&#8217;ai rejoint ensuite :
+<a href="http://www.lateral-thoughts.com/">Lateral Thoughts</a>, société de service
+innovante toute jeune fondée par
+<a href="https://twitter.com/" class="bare">https://twitter.com/</a><mark>%21/jblemee[Jean-Baptiste Lemée],
+<a href="https://twitter.com/" class="bare">https://twitter.com/</a></mark>%21/hugolassiege[Hugo Lassiège] et
+<a href="https://twitter.com/#%21/ogirardot">Olivier Girardot</a> (promis : je ne
+bullshite pas). Hé oui, en entretien d&#8217;embauche, j&#8217;ai codé ! Mais aussi
+entendu : "mais pourquoi n'écris-tu pas un premier test ?". Et là, d&#8217;un
+coup, d&#8217;un seul, le déclic a eu lieu : j&#8217;ai entrevu la puissance d&#8217;une
+telle approche et ses premières difficultés d&#8217;adoption; à savoir : se
+défaire de la notion de propriété (ceci n&#8217;est pas <strong>mon</strong> code) et se
+forcer à n'écrire que le strict minimum (Keep It Simple, Stupid!).</p>
+</div>
+<div class="paragraph">
+<p>Vint ensuite <a href="/?post/2012/02/17/Anonymous-Driven-Development">le
+challenge CodeStory</a>. Évidemment, ni
+<a href="https://twitter.com/" class="bare">https://twitter.com/</a><mark>%21/piwai[Pierre-Yves Ricau] (aka Piwaï) ni moi n&#8217;y
+sommes allés complètement à l&#8217;improviste. Connaissant un petit peu le
+niveau des organisateurs <a href="https://twitter.com/" class="bare">https://twitter.com/</a></mark>%21/dgageot[David Gageot]
+et <a href="https://twitter.com/#%21/morlhon">Jean-Laurent de Morlhon</a>, nous nous
+entraînés à (essayer d') aller plus vite : apprentissage des raccourcis
+d&#8217;Eclipse, démarrage rapide sur des technos particulières. Cela a
+représenté une somme de travail assez conséquente, mais le fait d'être à
+deux a beaucoup aidé.<br>
+<br>
+Enfin, pendant
+l&#8217;<a href="http://www.paug.fr/evenement-android/paris-android-dev-camp-2012-projets-open-data/">Android
+Dev Camp de Paris</a> (que Piwaï a remporté avec son équipe, au passage),
+je décidais de me créer mon propre challenge, tout content des choses
+apprises pendant CodeStory : un randori d&#8217;un week-end sur un projet
+personnel (plus d&#8217;infos bientôt) qui ne faisait que trop traîner. une
+vingtaine de sessions de 25 minutes chacune, en pur TDD et à deux. Très
+clairement, je n&#8217;aurais pas suivi ce rythme tout seul. J&#8217;espère publier
+bientôt le retour d&#8217;expérience de
+<a href="http://www.linkedin.com/pub/j%C3%A9r%C3%A9my-hagnere/41/540/499">Jérémy
+Hagneré</a> avec qui j&#8217;ai travaillé tout le week-end. Cela est d&#8217;autant
+plus intéressant que Jérémy partait d&#8217;un niveau scolaire en Java.<br>
+<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quelques_outils">Quelques outils</h3>
+<div class="paragraph">
+<p>Ayant toujours travaillé avec Eclipse, cet IDE est resté le choix par
+défaut. Il a toutefois été complété de quelques fonctionnalités bien
+sympathiques fournies par les plug-ins suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://moreunit.sourceforge.net/">MoreUnit</a>, un outil simple qui permet
+de passer facilement d&#8217;une classe à sa classe de tests et offre plein
+d&#8217;autres petits raccourcis qui vous changent la vie</p>
+</li>
+<li>
+<p><a href="http://infinitest.github.com/">InfiniTest</a>, maintenu par
+<a href="https://github.com/dgageot/kittenmash/">notre chatonphile national</a>, qui
+traque les moindres changements de code susceptibles d&#8217;influer les
+résultats de vos tests et les rejoue pour vous le cas échéant (c&#8217;est le
+plugin qui traque, pas le chatonphile, hein)</p>
+</li>
+<li>
+<p><a href="http://www.eclemma.org/">EclEmma</a> ou
+<a href="http://ecobertura.johoop.de/">eCobertura</a> sont deux plugins très
+similaires qui vous rapportent le pourcentage de code par vos tests
+(funny fact: EclEmma considère les lignes d&#8217;où sont lancées des
+exceptions non couvertes, même si un test associé couvre cette
+éventualité)</p>
+</li>
+<li>
+<p><a href="http://www.happyprog.com/pairhero/">PairHero</a> est sans doute un des
+outils les plus ludiques : calqué sur
+<a href="http://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro</a> et TDD, il
+vous permettra de coder &amp; stresser à deux en vous amusant.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Mais ça ne s&#8217;arrête pas là ! Sans maîtrise, la puissance n&#8217;est rien,
+comme dirait l&#8217;autre. Par le biais de ces sessions d&#8217;entraînement, mon
+partenaire et moi veillons à être le plus efficace possible avec l&#8217;IDE,
+c&#8217;est-à-dire apprendre à bien maîtriser ses raccourcis (qui varient
+évidemment d&#8217;une plate-forme à l&#8217;autre, sinon, ce serait trop simple).</p>
+</div>
+<div class="paragraph">
+<p>Bien que Ctrl+1* (MAC: Cmd+1) soit vraiment le couteau suisse du
+<em>serial refactorer</em>, les plus intéressants à retenir selon moi sont
+les raccourcis liés aux extractions (extraction de variable locale, de
+méthodes&#8230;&#8203;). Lorsque vous faites face à un code monolithique, vous
+verrez que ce genre de raccourci vous permettra de modifier votre code
+de façon beaucoup plus <em>safe</em> (mais vu que vous aurez écrit tous les
+tests pour couvrir l&#8217;existant, vous verrez vite si ça pète, non ?).</p>
+</div>
+<div class="paragraph">
+<p>On me souffle même dans l&#8217;oreillette que la première chose qu&#8217;aurait
+fait David Gageot avant de passer à IntelliJ IDEA aurait été d&#8217;apprendre
+ses raccourcis.</p>
+</div>
+<div class="paragraph">
+<p>*bien comprendre que sur un clavier PC français il faut appuyer sur
+Shift pour obtenir un 1, sinon, j&#8217;aurais écrit Ctrl+&amp; bien sûr ;)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_m_thodos">Méthodos</h3>
+<div class="sect3">
+<h4 id="_tdd">TDD</h4>
+<div class="paragraph">
+<p>Tout le monde connait cette approche ou croit la connaître. Et pour
+cause, l&#8217;approche proposée tient en quelques étapes et il est très
+facile de minimiser l&#8217;importance de certaines d&#8217;entre elles:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>écrivez un test qui ne passe pas (il faut qu&#8217;il compile tout de
+même)</p>
+</li>
+<li>
+<p>exécutez-le et constatez son échec</p>
+</li>
+<li>
+<p>écrivez le code minimal et "production-ready" qui fait passer le
+test (baby step)</p>
+</li>
+<li>
+<p>constatez sa réussite sinon repassez au 3</p>
+</li>
+<li>
+<p>nettoyez si nécessaire le code tout en vous assurant que les tests
+passent toujours</p>
+</li>
+<li>
+<p>revenez à l'étape 1 jusqu'à ce que tous les cas de tests soient
+couverts</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Conclusion: TDD, c&#8217;est juste écrire les tests en premier ?</p>
+</div>
+<div class="paragraph">
+<p>Que nenni, camarade ! Pour citer <a href="https://twitter.com/#%21/ugobourdon">Ugo
+Bourdon</a>, un Test-Driven Developer bien plus aguerri que moi: "Je ne
+teste jamais, je fais du TDD." Vous voyez la nuance ? Le but n&#8217;est pas
+d&#8217;atteindre 100% de couverture de tests ou d&#8217;exploser les stats de
+téléchargement d&#8217;Infinitest. Non, le but premier, commun à tous, est de
+produire du code qui peut partir en production le plus rapidement
+possible.</p>
+</div>
+<div class="paragraph">
+<p>Et bien sûr, cela dépend de la Définition de Fini que vous vous fixez.
+Mais il ne semble pas incongru de définir au minimum les contraintes
+suivantes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>le code fonctionne</p>
+</li>
+<li>
+<p>le code est lisible</p>
+</li>
+<li>
+<p>n&#8217;importe quelle fonctionnalité est remplaçable/ajoutable en un
+minimum de changements</p>
+</li>
+<li>
+<p>toute régression est détectée le plus vite possible</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Comme vous pouvez le voir, le mot "test" n&#8217;apparaît nulle part dans ces
+contraintes. Le test n&#8217;est qu&#8217;un moyen de se prémunir contre les bugs,
+un rempart contre les effets de bord et donc : un facilitateur de
+changements. Il devient presque indispensable à partir du moment où vous
+n'êtes plus le seul à travailler sur un projet (et qui vous dit que
+quelqu&#8217;un d&#8217;autre ne vous remplacera pas par la suite, de toutes façons
+?).</p>
+</div>
+<div class="paragraph">
+<p>À vrai dire, le TDD, c&#8217;est un peu comme le Viagra®: ce n&#8217;est pas en en
+prenant que vous deviendrez un étalon. En effet, vous ne le savez
+peut-être pas : le <a href="http://fr.wikipedia.org/wiki/Viagra">Viagra®</a> ne
+favorise pas l'érection mais lutte contre son arrêt en y préservant le
+monoxyde de carbone.</p>
+</div>
+<div class="paragraph">
+<p>Si vous codez comme un
+<a href="http://fr.wiktionary.org/wiki/gougnafier">gougnafier</a>, votre code restera
+de qualité déplorable et buggé. Déterminer les bons tests, faire en
+sorte que le code soit lisible est toujours de votre responsabilité. TDD
+vous aide juste à déterminer plus rapidement que votre code se détériore
+et vous aide donc à le corriger plus vite.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__deux_c_est_mieux">À deux, c&#8217;est mieux !</h4>
+<div class="paragraph">
+<p>J&#8217;espère que tout le monde passera outre la proximité de ce titre avec
+ma comparaison précédente :)</p>
+</div>
+<div class="sect4">
+<h5 id="_int_r_ts">Intérêts</h5>
+<div class="paragraph">
+<p>Les avantages naturels du pair-programming sont les suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>le code est écrit par deux personnes, le sentiment de propriété est
+donc moins fort et les remises en cause plus aisées</p>
+</li>
+<li>
+<p>chacun s&#8217;expose à l&#8217;autre et tend à lui montrer ce qu&#8217;il peut faire de
+mieux (émulation)</p>
+</li>
+<li>
+<p>les failles de raisonnement et fautes d&#8217;inattention doivent faire face
+à une paire d&#8217;yeux supplémentaire et se trouvent donc fortement réduites</p>
+</li>
+<li>
+<p>chaque personne est responsable de l'équipe, et l&#8217;envie d&#8217;abandonner
+pénalise deux personnes au lieu d&#8217;une, ce qui explique pourquoi
+travailler à deux est bien plus motivant</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>En résumé, travailler à deux, c&#8217;est un ping-pong permanent, une
+<a href="http://fr.wikipedia.org/wiki/Dissonance_cognitive">dissonance cognitive</a>
+réduite bien plus vite et un partage des connaissances et une envie
+d&#8217;essayer accrues.<br>
+<br></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_les_pi_ges">Les pièges</h5>
+<div class="paragraph">
+<p>Mais sachez qu&#8217;il existe de nombreuses possibilités de configuration
+pour programmer en paire <strong>inefficacement</strong>, comme l&#8217;explique
+l&#8217;excellent post
+<a href="http://www.nomachetejuggling.com/2011/08/25/mechanics-of-good-pairing/">"Mechanics
+of Good Pairing"</a> dont je ne peux que vous recommander la lecture.</p>
+</div>
+<div class="paragraph">
+<p>Afin de pas tomber dans l'écueil du "pépère-programming", je me suis
+toujours installé de la façon suivante :</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://www.nomachetejuggling.com/files/level4.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Dans cette configuration, il n&#8217;existe qu&#8217;une seule machine (+ 1 machine
+commune pour les recherches) avec affichage en miroir sur deux écrans,
+un clavier et une souris chacun. Chacun est donc installé comme s&#8217;il
+était seul et peut donc intervenir à tout moment (plus d&#8217;effets "bras
+croisés" donc). Les deux personnes restent maîtres en même temps d&#8217;un
+seul et même code.<br>
+<br>
+Si vous êtes joueur, je vous conseille de pimenter l&#8217;exercice avec
+PairHero. Le workflow décrit précédemment devient :<br>
+<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>le codeur A écrit un test qui ne passe pas</p>
+</li>
+<li>
+<p>PairHero donne la main au codeur B qui écrit le code qui fait passer
+le test (+10 points!)</p>
+</li>
+<li>
+<p>le codeur refactore le code si besoin (+2 par refactor!)</p>
+</li>
+<li>
+<p>le codeur B écrit un nouveau test qui ne passe pas</p>
+</li>
+<li>
+<p>PairHero donne la main au codeur A qui écrit le code suffisant pour
+que le test passe (+10 points!)</p>
+</li>
+<li>
+<p>le codeur refactore le code si besoin</p>
+</li>
+<li>
+<p>retour à l'étape 1 et ainsi de suite pendant 25 minutes</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Sympathique, n&#8217;est-ce pas ?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_be_continued">To be continued</h3>
+<div class="paragraph">
+<p>J&#8217;ai eu l&#8217;occasion de discuter sur ce sujet avec mon responsable en
+mission qui était vraiment très réfractaire à ce genre de pratiques. Il
+avait en fait l&#8217;image d&#8217;un pair-programming qui n&#8217;en est pas un (voir
+les niveaux &lt; 2 de
+<a href="http://www.nomachetejuggling.com/2011/08/25/mechanics-of-good-pairing/">l&#8217;article
+cité plus haut</a>).</p>
+</div>
+<div class="paragraph">
+<p>Néanmoins, avec mon enthousiasme non dissimulé et en faisant
+l&#8217;association TDD &lt;&#8594; pair-programming, j&#8217;ai réussi à le convaincre
+d&#8217;essayer dans notre équipe de projet dès la semaine prochaine. Dans le
+même temps, j&#8217;animerais un petit atelier sur un Kata classique afin de
+mettre mes coéquipiers à l'épreuve, et je l&#8217;espère, convaincre les
+réfractaires (s&#8217;il y en a).</p>
+</div>
+<div class="paragraph">
+<p>Ce sera donc ma première expérience de pair-programming avec des
+personnes que je connais peu.</p>
+</div>
+<div class="paragraph">
+<p>Donc non, le pair-programming/TDD en entreprise n&#8217;est pas mort !</p>
+</div>
+<div class="paragraph">
+<p>Stay tuned et banzai !</p>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/445792?v=3)"><span class="hidden">@fbiville's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">@fbiville</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Paris, France</span>
+                    <span class="author-link icon-link"><a href="http://florent.biville.net">http://florent.biville.net</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Ne%20remets%20pas%20%C3%A0%20deux%20mains%20ce%20que%20tu%20peux%20faire%20%C3%A0%20quatre&amp;url=https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://fbiville.github.io/2012/02/26/Ne-remets-pas-a-deux-mains-ce-que-tu-peux-faire-a-quatre.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          var disqus_shortname = 'fbiville-github-io'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://fbiville.github.io">(10 piece) Puzzler</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//fbiville.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//fbiville.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
