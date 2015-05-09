@@ -81,7 +81,9 @@ WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 RETURN me, colleagues
 ----
 
+
 Exprimons maintenant les contraintes de chevauchement :
+
 
 [source,cypher]
 ----
@@ -107,6 +109,7 @@ AND (NOT HAS(theirStay.end) OR myStay.beginning < theirStay.end)
 AND (NOT HAS(myStay.end) OR theirStay.beginning < myStay.end)
 RETURN me, colleagues
 ----
+
 
 Filtrage des collègues par contact
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -145,6 +148,7 @@ Allez, une dernière pour la route : pour que de retourner n associations 1-1 co
 
 Petite subtilité : rien ne vous garantit l’ordre des collègues qui vous a été retourné. Nous pouvons utiliser la clause ORDER BY juste après WITH, afin de s’assurer que les collègues sont triés (l’opération de filtrage qui suit n’y changera rien).
 
+
 [source,cypher]
 ----
 MATCH (me:CONTACT)-[myStay:WORKED_IN]->(company:COMPANY),
@@ -158,7 +162,9 @@ WHERE (me-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-colleagues)
 RETURN me, colleagues
 ----
 
+
 Reste maintenant à agréger :
+
 
 [source,cypher]
 ----
@@ -179,6 +185,7 @@ Les avantages d’avoir découpé la requête comme suit sont multiples :
  * la requête, découpée en blocs distincts, est nettement plus lisible
  * elle est également plus maintenable puisque chaque bloc se voit confier une partie bien identifiée du problème à résoudre
 * et surtout, puisque l’on retourne toujours le contact concerné et ses suggestions de contact, je peux me permettre d’opérer à la “fire and forget” puisque le résultat de la requête contient tout le contexte nécessaire à son interprétation
+
 
 Le mot de la fin
 ~~~~~~~~~~~~~~~~
@@ -201,9 +208,10 @@ déplorait https://twitter.com/sdeleuze[Sébastien Deleuze] lors d'un
 
 Le prochain article aura pour thème : Neo4J sous le capot.
 
+
 Post-Scriptum : un jeu de données pour vérifier la requête
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Essayez donc la requête finale sur http://console.neo4j.org et les
-requêtes intermédiaires en remplaçant \{name} par ‘Florent’ sur le jeu
+requêtes intermédiaires en remplaçant `{name}` par ‘Florent’ sur le jeu
 de données fourni ci-dessous.
