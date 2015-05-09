@@ -103,8 +103,8 @@ Ce qui m’a motivé pour les rejoindre en tant qu’interne : c’est la
 perspective de pouvoir se focaliser sur ce que l’on fait de mieux et
 devenir irréprochables (par ordre d’importance) :
  +
- * s’approprier nos softs, de leur création au suivi de prod en passant
-par les tests
+ 
+ * s'approprier nos softs, de leur création au suivi de prod en passant par les tests
  * devenir de plus en plus véloces sur la maintenance de ces produits
  * oser tenter des choix à contre-courant
 
