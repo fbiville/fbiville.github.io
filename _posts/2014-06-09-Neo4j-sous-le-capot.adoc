@@ -349,19 +349,25 @@ Help! Je suis dans la situation n°1!
 Si par malheur, et après exploration de toutes les alternatives
 (échantillonnage statistique etc), vous en concluez que vous ne pouvez
 faire autrement : rassurez-vous !
+
 Tout d’abord, les équipes de Neo continuent de plancher et d’apporter
 des améliorations à ce sujet. Nous devrions donc voir quelques
 améliorations avec la v2.2.
+
 De plus, une approche simple https://github.com/maxdemarzi/dense[est
 déjà codée pour vous] par l’excellent
 https://twitter.com/maxdemarzi[Max] http://maxdemarzi.com/[de]
 https://www.kickstarter.com/projects/1355751798/high-performance-neo4j-video-course[Marzi].
+
 L’idée de son extension est simple : elle va simplement ventiler les
 noeuds par niveau lors de chaque nouvelle insertion et les lire de façon
 transparente.
+
 Voici donc un exemple de structure automatiquement créée par son
 extension :
-image:/blog/public/.dense_nodes_m.png[dense_nodes.png,title="dense_nodes.png, Jun 2014"]
+
+image::dense_nodes.png[]
+
 Tout comme Justin Bieber, Lady Gaga et Madonna ont également de nombreux
 fans (chaque fan “LIKES” l’artiste).
 Un noeud factice va donc se substituer aux noeuds que l’on aurait
@@ -370,17 +376,22 @@ noeuds intermédiaires regroupant eux aussi un nombre limité de fans,
 relié alors par une “DENSE_LIKES”.
 Les relations sont maintenant réparties et l’on pourra paginer nos
 requêtes de lecture de cette façon : 
-``
+
+[source,cypher]
+----
 MATCH (fan:Fan)-[:DENSE_LIKES*0..5]->()-[:LIKES]->(loved:Artist \{name:
 “Madonna”})
 RETURN fan
+----
+
 Cette requête signifie (en lisant le pattern de bas en haut, de droite à
 gauche) :
-________________________________________________________________
+
+----
 retourne tous les noeuds au label “Artist” et au nom “Madonna” +
 qui sont “LIKÉS“ par un noeud quelconque (appelons-le META) +
 et 0 à 5 relations DENSE_LIKE séparent META des noeuds
-________________________________________________________________
+----
 
 Étant donné que la requête recherche les nombreux fans d’un artiste,
 sans aucune ventilation du graphe, nous serions en plein dans la
@@ -389,16 +400,20 @@ couplée à l’usage astucieux des
 http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships[variable-length
 paths] permet de ne récupérer qu’une fraction des fans sans pour autant
 traverser toutes les relations dont l’artiste dépend.
+
+
 Neo4j et scalabilité
 ~~~~~~~~~~~~~~~~~~~~
 
 Maintenant que le format physique des fichiers est un peu plus clair,
 regardons un peu les couches supérieures.
+
 Architecture
 ^^^^^^^^^^^^
 
 Les accès disques sont bien évidemment limités autant que possible. Deux
 niveaux de cache interviennent.
+
 Le _file buffer cache_
 ++++++++++++++++++++++
 
@@ -413,6 +428,7 @@ fichiers et de l’OS. 
 Quoi qu’il en soit, cette couche a pour seul but de réduire au maximum
 les accès disque mais n’introduit aucune forme d’abstraction sur les
 données manipulées.
+
 L’__object cache__
 ++++++++++++++++++
 
@@ -424,6 +440,8 @@ sous-jacent.
 C’est pourquoi il est souvent préférable de déployer Neo4j de façon
 isolée, afin que votre application ne vienne pas perturber (comme par
 exemple : ) les cycles GC de votre instance Neo et vise-versa.
+
+
 ... et le reste
 +++++++++++++++
 
@@ -443,6 +461,8 @@ limites du locking et les alternatives existantes (“lock-free
 concurrency”, BASE vs ACID) : Google est votre ami.
 J’en profite donc pour passer à la partie qui m’intéresse le plus : le
 _sharding_ :)
+
+
 _Sharding_ d’un graphe dynamique
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -465,6 +485,8 @@ détecter (on parle de “__graph clustering__” ou de “__community
 detection__”) : elles ne sont pas amenées à évoluer du tout. 
 http://en.wikipedia.org/wiki/Strongly_connected_component[Certains
 algorithmes] sont même relativement faciles à implémenter.
+
+
 Graphe dynamique
 ++++++++++++++++
 
@@ -486,6 +508,8 @@ Comprenez bien le terrible dilemne : par son orientation graphe dès les
 couches physiques, Neo4j est à la fois idéal pour stocker et requêter
 des données sous forme de graphe mais également très difficile à sharder
 !
+
+
 Une lueur d’espoir ?
 ++++++++++++++++++++
 
@@ -501,6 +525,7 @@ répartition des données était nécessaire
 * il se trouve que certains domaines métiers permettent naturellement de
 ségréguer ses données
 * il existe un début de solution de répartition !
+
 
 Le _cache sharding_ !
 +++++++++++++++++++++
@@ -539,6 +564,8 @@ Astucieux, non ?
 Un simple load balancer, un cluster Neo4j (l’édition High Availability
 vous fournit tous les outils qu’il vous fait) et vous êtes prêts à
 affronter une forte volumétrie de données !
+
+
 Conclusion
 ----------
 
