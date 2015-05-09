@@ -23,7 +23,7 @@
     <meta property="og:description" content="Recommandations de collègues Rappel de l&#x27;épisode précédent L’exercice posé en fin d’article précédent, dans le cadre d’un moteur de recommandations pour un réseau social professionnel, était le suivant : “trouve-moi tous les contacts de mes contacts, qui connaissent..." />
     <meta property="og:url" content="https://fbiville.github.io/2013/10/27/Neo4j-et-graphe-social.html" />
     <meta property="article:published_time" content="2013-10-26T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-04T12:49:19.439Z" />
+    <meta property="article:modified_time" content="2015-05-09T12:13:05.571Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Neo4j et graphe social" />
@@ -45,7 +45,7 @@
     "headline": "Neo4j et graphe social",
     "url": "https://fbiville.github.io/2013/10/27/Neo4j-et-graphe-social.html",
     "datePublished": "2013-10-26T22:00:00.000Z",
-    "dateModified": "2015-05-04T12:49:19.439Z",
+    "dateModified": "2015-05-09T12:13:05.571Z",
     "description": "Recommandations de collègues Rappel de l&#x27;épisode précédent L’exercice posé en fin d’article précédent, dans le cadre d’un moteur de recommandations pour un réseau social professionnel, était le suivant : “trouve-moi tous les contacts de mes contacts, qui connaissent..."
 }
     </script>
@@ -137,9 +137,9 @@ par bloc.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[:WORKED_IN]-&gt;(:COMPANY)&lt;-[:WORKED_IN]-(colleagues:CONTACT)
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[:WORKED_IN]-&gt;(:COMPANY)&lt;-[:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name}
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -152,9 +152,9 @@ collègues et moi :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[:WORKED_IN]-&gt;(:COMPANY)&lt;-[:WORKED_IN]-(colleagues:CONTACT)
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[:WORKED_IN]-&gt;(:COMPANY)&lt;-[:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -180,10 +180,10 @@ d’améliorer la lisibilité de la requête.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -191,12 +191,12 @@ RETURN me, colleagues</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 AND myStay.beginning &lt; theirStay.end
 AND theirStay.beginning &lt; myStay.end
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -206,12 +206,12 @@ pas renseignée).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 AND (NOT HAS(theirStay.end) OR myStay.beginning &lt; theirStay.end)
 AND (NOT HAS(myStay.end) OR theirStay.beginning &lt; myStay.end)
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 </div>
@@ -224,8 +224,7 @@ relativement importante, deux stratégies se présentent pour continuer :</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>nous continuons à l’enrichir au risque de la rendre complètement
-spécifique et potentiellement illisible</p>
+<p>nous continuons à l’enrichir au risque de la rendre complètement spécifique et potentiellement illisible</p>
 </li>
 <li>
 <p>nous la chaînons avec une autre-requête</p>
@@ -245,35 +244,28 @@ filtrer par collègues :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 AND (NOT HAS(theirStay.end) OR myStay.beginning &lt; theirStay.end)
 AND (NOT HAS(myStay.end) OR theirStay.beginning &lt; myStay.end)
 WITH me, colleagues
 WHERE (me-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-colleagues)
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Sympa, non ?</p>
 </div>
 <div class="paragraph">
-<p>Allez, une dernière pour la route : pour que de retourner n associations
-1-1 comme c’est le cas actuellement, les autorités compétentes m’ont
-demandé de directement retourner une association 1-n avec les collègues
-triés par nom. Autrement dit : retourner la collection agrégée de
-collègues.</p>
+<p>Allez, une dernière pour la route : pour que de retourner n associations 1-1 comme c’est le cas actuellement, les autorités compétentes m’ont demandé de directement retourner une association 1-n avec les collègues triés par nom. Autrement dit : retourner la collection agrégée de collègues.</p>
 </div>
 <div class="paragraph">
-<p>Petite subtilité : rien ne vous garantit l’ordre des collègues qui vous
-a été retourné. Nous pouvons utiliser la clause ORDER BY juste après
-WITH, afin de s’assurer que les collègues sont triés (l’opération de
-filtrage qui suit n’y changera rien).</p>
+<p>Petite subtilité : rien ne vous garantit l’ordre des collègues qui vous a été retourné. Nous pouvons utiliser la clause ORDER BY juste après WITH, afin de s’assurer que les collègues sont triés (l’opération de filtrage qui suit n’y changera rien).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 AND (NOT HAS(theirStay.end) OR myStay.beginning &lt; theirStay.end)
@@ -281,7 +273,7 @@ AND (NOT HAS(myStay.end) OR theirStay.beginning &lt; myStay.end)
 WITH me, colleagues
 ORDER BY colleagues.name
 WHERE (me-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-colleagues)
-RETURN me, colleagues</pre>
+RETURN me, colleagues</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -289,15 +281,14 @@ RETURN me, colleagues</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (me:CONTACT)-[myStay:WORKED_IN]-&gt;(company:COMPANY),
 company&lt;-[theirStay:WORKED_IN]-(colleagues:CONTACT)
 WHERE me.name = {name} AND NOT (me-[:IN_CONTACT_WITH]-colleagues)
 AND (NOT HAS(theirStay.end) OR myStay.beginning &lt; theirStay.end)
 AND (NOT HAS(myStay.end) OR theirStay.beginning &lt; myStay.end)
 WITH me, colleagues
 ORDER BY colleagues.name
-WHERE (me-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-colleagues)
-RETURN me, COLLECT(colleagues)</pre>
+WHERE (me-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-colleagues)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -312,14 +303,10 @@ RETURN me, COLLECT(colleagues)</pre>
 <p>la requête, découpée en blocs distincts, est nettement plus lisible</p>
 </li>
 <li>
-<p>elle est également plus maintenable puisque chaque bloc se voit
-confier une partie bien identifiée du problème à résoudre</p>
+<p>elle est également plus maintenable puisque chaque bloc se voit confier une partie bien identifiée du problème à résoudre</p>
 </li>
 <li>
-<p>et surtout, puisque l’on retourne toujours le contact concerné et ses
-suggestions de contact, je peux me permettre d’opérer à la “fire and
-forget” puisque le résultat de la requête contient tout le contexte
-nécessaire à son interprétation</p>
+<p>et surtout, puisque l’on retourne toujours le contact concerné et ses suggestions de contact, je peux me permettre d’opérer à la “fire and forget” puisque le résultat de la requête contient tout le contexte nécessaire à son interprétation</p>
 </li>
 </ul>
 </div>
