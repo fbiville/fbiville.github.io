@@ -1,7 +1,7 @@
 # Slideshow with HTML5
+
 When you hear slideshow, you probably think of Javascript, maybe via
-http://en.wikipedia.org/wiki/List_of_JavaScript_libraries[your favorite
-framework] or http://eloquentjavascript.net/[not].
+http://en.wikipedia.org/wiki/List_of_JavaScript_libraries[your favorite framework] or http://eloquentjavascript.net/[not].
 
 Well, those days are over. http://www.html5rocks.com/[HTML5] is more and
 more present, and yes, you should begin learning it. Today, we are gonna
@@ -18,9 +18,15 @@ _from_ and _to_ can be respectively used in lieu of 0% and 100%.
 * *effects* - each step defines a set of
 http://www.css3.info/preview/[CSS rules].
 
- +
-`@keyframes AnimationName{    0%,15%,100% {left: 0px;}    35%,50% {left: -640px;}    70%,85% {left: -1280px;}}` +
- +
+[source,css]
+----
+@keyframes AnimationName{    
+	0%,15%,100% {left: 0px;}    
+    35%,50% {left: -640px;}    
+    70%,85% {left: -1280px;}
+}
+----
+
 In the above example, nothing fancy: this animation does no more than
 moving the attached block to the left and come back to its initial
 position (provided this element is positioned relatively to one of its
