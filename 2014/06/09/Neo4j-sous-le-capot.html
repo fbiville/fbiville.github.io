@@ -23,7 +23,7 @@
     <meta property="og:description" content="3615-ma-vie Tout ce qui va suivre n’est qu’un tissu de mauvaises excuses, me direz-vous, mais j’ai tout de même quelques circonstances atténuantes quant à l’inactivité de mon blog (et mon absence de la scène parisienne : je..." />
     <meta property="og:url" content="https://fbiville.github.io/2014/06/09/Neo4j-sous-le-capot.html" />
     <meta property="article:published_time" content="2014-06-08T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-09T11:51:50.301Z" />
+    <meta property="article:modified_time" content="2015-05-09T11:56:29.748Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Neo4j sous le capot" />
@@ -45,7 +45,7 @@
     "headline": "Neo4j sous le capot",
     "url": "https://fbiville.github.io/2014/06/09/Neo4j-sous-le-capot.html",
     "datePublished": "2014-06-08T22:00:00.000Z",
-    "dateModified": "2015-05-09T11:51:50.301Z",
+    "dateModified": "2015-05-09T11:56:29.748Z",
     "description": "3615-ma-vie Tout ce qui va suivre n’est qu’un tissu de mauvaises excuses, me direz-vous, mais j’ai tout de même quelques circonstances atténuantes quant à l’inactivité de mon blog (et mon absence de la scène parisienne : je..."
 }
     </script>
@@ -588,43 +588,60 @@ node threshold]”).</p>
 <div class="paragraph">
 <p>Si par malheur, et après exploration de toutes les alternatives
 (échantillonnage statistique etc), vous en concluez que vous ne pouvez
-faire autrement : rassurez-vous !
-Tout d’abord, les équipes de Neo continuent de plancher et d’apporter
+faire autrement : rassurez-vous !</p>
+</div>
+<div class="paragraph">
+<p>Tout d’abord, les équipes de Neo continuent de plancher et d’apporter
 des améliorations à ce sujet. Nous devrions donc voir quelques
-améliorations avec la v2.2.
-De plus, une approche simple <a href="https://github.com/maxdemarzi/dense">est
+améliorations avec la v2.2.</p>
+</div>
+<div class="paragraph">
+<p>De plus, une approche simple <a href="https://github.com/maxdemarzi/dense">est
 déjà codée pour vous</a> par l’excellent
 <a href="https://twitter.com/maxdemarzi">Max</a> <a href="http://maxdemarzi.com/">de</a>
-<a href="https://www.kickstarter.com/projects/1355751798/high-performance-neo4j-video-course">Marzi</a>.
-L’idée de son extension est simple : elle va simplement ventiler les
+<a href="https://www.kickstarter.com/projects/1355751798/high-performance-neo4j-video-course">Marzi</a>.</p>
+</div>
+<div class="paragraph">
+<p>L’idée de son extension est simple : elle va simplement ventiler les
 noeuds par niveau lors de chaque nouvelle insertion et les lire de façon
-transparente.
-Voici donc un exemple de structure automatiquement créée par son
-extension :
-<span class="image"><img src="/blog/public/.dense_nodes_m.png" alt="dense_nodes.png" title="dense_nodes.png, Jun 2014"></span>
-Tout comme Justin Bieber, Lady Gaga et Madonna ont également de nombreux
+transparente.</p>
+</div>
+<div class="paragraph">
+<p>Voici donc un exemple de structure automatiquement créée par son
+extension :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/dense_nodes.png" alt="dense nodes.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Tout comme Justin Bieber, Lady Gaga et Madonna ont également de nombreux
 fans (chaque fan “LIKES” l’artiste).
 Un noeud factice va donc se substituer aux noeuds que l’on aurait
 directement lié aux artistes et introduire des couches, par le biais de
 noeuds intermédiaires regroupant eux aussi un nombre limité de fans,
 relié alors par une “DENSE_LIKES”.
 Les relations sont maintenant réparties et l’on pourra paginer nos
-requêtes de lecture de cette façon :
-``
-MATCH (fan:Fan)-[:DENSE_LIKES*0..5]&#8594;()-[:LIKES]&#8594;(loved:Artist \{name:
+requêtes de lecture de cette façon :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cypher" data-lang="cypher">MATCH (fan:Fan)-[:DENSE_LIKES*0..5]-&gt;()-[:LIKES]-&gt;(loved:Artist \{name:
 “Madonna”})
-RETURN fan
-Cette requête signifie (en lisant le pattern de bas en haut, de droite à
+RETURN fan</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette requête signifie (en lisant le pattern de bas en haut, de droite à
 gauche) :</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>retourne tous les noeuds au label “Artist” et au nom “Madonna”<br>
-qui sont “LIKÉS“ par un noeud quelconque (appelons-le META)<br>
-et 0 à 5 relations DENSE_LIKE séparent META des noeuds</p>
+<div class="listingblock">
+<div class="content">
+<pre>retourne tous les noeuds au label “Artist” et au nom “Madonna” +
+qui sont “LIKÉS“ par un noeud quelconque (appelons-le META) +
+et 0 à 5 relations DENSE_LIKE séparent META des noeuds</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Étant donné que la requête recherche les nombreux fans d’un artiste,
@@ -633,46 +650,58 @@ situation n°1 décrite préalablement. Néanmoins, cette approche simple
 couplée à l’usage astucieux des
 <a href="http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships">variable-length
 paths</a> permet de ne récupérer qu’une fraction des fans sans pour autant
-traverser toutes les relations dont l’artiste dépend.
-Neo4j et scalabilité
-<sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub>~~</p>
+traverser toutes les relations dont l’artiste dépend.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_neo4j_et_scalabilit">Neo4j et scalabilité</h3>
 <div class="paragraph">
 <p>Maintenant que le format physique des fichiers est un peu plus clair,
-regardons un peu les couches supérieures.
-Architecture
-<sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup></p>
+regardons un peu les couches supérieures.</p>
 </div>
+<div class="sect3">
+<h4 id="_architecture">Architecture</h4>
 <div class="paragraph">
 <p>Les accès disques sont bien évidemment limités autant que possible. Deux
-niveaux de cache interviennent.
-Le <em>file buffer cache</em></p>
+niveaux de cache interviennent.</p>
 </div>
-Vous vous en doutez, le file buffer cache sert de tampon aux
+<div class="sect4">
+<h5 id="_le_em_file_buffer_cache_em">Le <em>file buffer cache</em></h5>
+<div class="paragraph">
+<p>Vous vous en doutez, le file buffer cache sert de tampon aux
 écritures/lectures des enregistrements physiques (cf. les fichiers
 décrits précédemment). Les entrées les moins récemment accédées sont
 évincées du buffer
-(http://en.wikipedia.org/wiki/Least_Recently_Used#LRU[LRU]).
+(<a href="http://en.wikipedia.org/wiki/Least_Recently_Used#LRU">LRU</a>).
 Si possible, ce buffer est directement mappé au fichier store
 sous-jacent (“memory-mapping”). Ce comportement dépend du système de
 fichiers et de l’OS.
 Quoi qu’il en soit, cette couche a pour seul but de réduire au maximum
 les accès disque mais n’introduit aucune forme d’abstraction sur les
-données manipulées.
-L’__object cache__
-++++++++++++++++++
-
-Lui aussi cache LRU, c’est à partir de ce moment-là que les données
+données manipulées.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_l_em_object_cache_em">L’<em>object cache</em></h5>
+<div class="paragraph">
+<p>Lui aussi cache LRU, c’est à partir de ce moment-là que les données
 manipulées commencent à prendre la forme du graphe que vous requêtez par
 traversée ou par Cypher. Notez que l’allocation mémoire à ce niveau est
 prise sur la heap de la JVM hôte et non plus directement de l’OS hôte
 sous-jacent.
 C’est pourquoi il est souvent préférable de déployer Neo4j de façon
 isolée, afin que votre application ne vienne pas perturber (comme par
-exemple : ) les cycles GC de votre instance Neo et vise-versa.
-... et le reste
-+++++++++++++++
-
+exemple : ) les cycles GC de votre instance Neo et vise-versa.</p>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>et le reste</p>
+</li>
+</ol>
+</div>
 À partir de là, les APIs unitaires Java prennent le relais, suivies des
 APIs de traversées, Cypher et les APIs REST !
 image:/blog/public/.neo4j_archi_m.png[neo4j_archi.png,title="neo4j_archi.png, Jun 2014"]
@@ -689,6 +718,8 @@ limites du locking et les alternatives existantes (“lock-free
 concurrency”, BASE vs ACID) : Google est votre ami.
 J’en profite donc pour passer à la partie qui m’intéresse le plus : le
 _sharding_ :)
+
+
 _Sharding_ d’un graphe dynamique
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -703,18 +734,19 @@ des notions qui se répartissent naturellement. Eh oui ! Le _sharding_
 est une solution technique, certes, mais hautement dépendante du métier
 (comme toute solution technique devrait l’être, mais je digresse).
 Graphe statique
-+++++++++++++++
-
-Un graphe statique est plutôt facile à _sharder_ (dans la mesure où le
+<div class="paragraph">
+<p>Un graphe statique est plutôt facile à <em>sharder</em> (dans la mesure où le
 domaine métier modélisé le permet), ses fragmentations sont faciles à
-détecter (on parle de “__graph clustering__” ou de “__community
-detection__”) : elles ne sont pas amenées à évoluer du tout.
-http://en.wikipedia.org/wiki/Strongly_connected_component[Certains
-algorithmes] sont même relativement faciles à implémenter.
-Graphe dynamique
-++++++++++++++++
-
-Pour les graphes dynamiques, en revanche, c’est une autre paire de
+détecter (on parle de “<em>graph clustering</em>” ou de “<em>community
+detection</em>”) : elles ne sont pas amenées à évoluer du tout.
+<a href="http://en.wikipedia.org/wiki/Strongly_connected_component">Certains
+algorithmes</a> sont même relativement faciles à implémenter.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_graphe_dynamique">Graphe dynamique</h5>
+<div class="paragraph">
+<p>Pour les graphes dynamiques, en revanche, c’est une autre paire de
 manche. De nombreuses opérations d’insertion et suppression
 interviennent en permanence et elles impactent nécessairement la
 topologie du graphe.
@@ -723,44 +755,47 @@ telle sorte, qu’à tout instant, le nombre de relations inter-shards soit
 minimisé. Cela est d’autant plus critique que les shards sont distants
 (imaginez la latence réseau induite par une traversée qui commence par
 un shard hébergé à Los Angeles pour finir dans un shard à Pékin).
-image:/blog/public/neo4j_shards.png[neo4j_shards.png,title="neo4j_shards.png, Jun 2014"]
+<span class="image"><img src="/blog/public/neo4j_shards.png" alt="neo4j_shards.png" title="neo4j_shards.png, Jun 2014"></span>
 C’est un
-http://alexaverbuch.blogspot.fr/2010/04/me-my-names-alex-im-currently.html[sujet
-de recherche] à part entière et Neo Technology travaille depuis
+<a href="http://alexaverbuch.blogspot.fr/2010/04/me-my-names-alex-im-currently.html">sujet
+de recherche</a> à part entière et Neo Technology travaille depuis
 plusieurs années sur un système shardable.
 Comprenez bien le terrible dilemne : par son orientation graphe dès les
 couches physiques, Neo4j est à la fois idéal pour stocker et requêter
 des données sous forme de graphe mais également très difficile à sharder
-!
-Une lueur d’espoir ?
-++++++++++++++++++++
-
-Il est pour l’instant nécessaire de miser sur du
-http://fr.wikipedia.org/wiki/Scalability[_scaling vertical_] :
+!</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_une_lueur_d_espoir">Une lueur d’espoir ?</h5>
+<div class="paragraph">
+<p>Il est pour l’instant nécessaire de miser sur du
+<a href="http://fr.wikipedia.org/wiki/Scalability"><em>scaling vertical</em></a> :
 dimensionnez suffisamment vos machines et tout se passera très bien.
 Laissez-moi vous rassurer davantage :
 * jusqu’à présent, une infime minorité de clients a été confrontée à une
 volumétrie telle
-(http://docs.neo4j.org/chunked/stable/capabilities-capacity.html[capacité
-nomimale de Neo4j] : 34 millards de noeuds et de relations) qu’une
+(<a href="http://docs.neo4j.org/chunked/stable/capabilities-capacity.html">capacité
+nomimale de Neo4j</a> : 34 millards de noeuds et de relations) qu’une
 répartition des données était nécessaire
 * il se trouve que certains domaines métiers permettent naturellement de
 ségréguer ses données
-* il existe un début de solution de répartition !
-
-Le _cache sharding_ !
-+++++++++++++++++++++
-
-Le titre peut faire peur, mais rassurez-vous, l’idée est toute simple.
+* il existe un début de solution de répartition !</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_le_em_cache_sharding_em">Le <em>cache sharding</em> !</h5>
+<div class="paragraph">
+<p>Le titre peut faire peur, mais rassurez-vous, l’idée est toute simple.
 Tout d’abord, cette idée s’applique à Neo4j en mode
-http://docs.neo4j.org/chunked/stable/ha-how.html[High Availability]. En
+<a href="http://docs.neo4j.org/chunked/stable/ha-how.html">High Availability</a>. En
 d’autres termes, cela ne s’applique qu'à une instance Neo4j au sein
-d'un __cluster__.
+d&#8217;un <em>cluster</em>.
 Non seulement vous bénéficiez d’une réplication master/replica, mais
-vous pouvez également bénéficier de __sharding__.
-Oui, oui, j’ai bien dit __sharding__.
-Malheureusement, pour les raisons évoquées plus haut, il ne s'agit pas
-de __sharding__ sur les données à proprement parler. Comme le titre
+vous pouvez également bénéficier de <em>sharding</em>.
+Oui, oui, j’ai bien dit <em>sharding</em>.
+Malheureusement, pour les raisons évoquées plus haut, il ne s&#8217;agit pas
+de <em>sharding</em> sur les données à proprement parler. Comme le titre
 l’évoque, il s’agit de sharding sur le cache.
 Comment est-ce possible ? C’est tout simple !
 Les caches de Neo4j sont des caches LRU, ils ne conservent que les
@@ -773,9 +808,9 @@ données seraient donc effectivement réparties par cache.
 Le problème se réduit donc à : comment répartir de façon consistante les
 requêtes à exécuter entre les instances de mon cluster Neo4j ?
 Je vous le donne en mille. La solution existe depuis des lustres : un
-simple load balancer comme http://haproxy.1wt.eu/[HAProxy] saura faire
+simple load balancer comme <a href="http://haproxy.1wt.eu/">HAProxy</a> saura faire
 l’affaire. On parle de consistent routing (plus généralement de
-http://en.wikipedia.org/wiki/Consistent_hashing[_consistent hashing_]).
+<a href="http://en.wikipedia.org/wiki/Consistent_hashing"><em>consistent hashing</em></a>).
 Il suffit de configurer sa façon de router selon un des arguments
 présents dans le corps ou un quelconque entête des appels HTTP envoyés à
 Neo (rappelez-vous : toute communication distante est définie par une
@@ -784,26 +819,33 @@ vous l’avez configuré !
 Astucieux, non ?
 Un simple load balancer, un cluster Neo4j (l’édition High Availability
 vous fournit tous les outils qu’il vous fait) et vous êtes prêts à
-affronter une forte volumétrie de données !
-Conclusion
-----------
-
-Une des leçons de NOSQL est que toute solution se restreint à un certain
+affronter une forte volumétrie de données !</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une des leçons de NOSQL est que toute solution se restreint à un certain
 champ d’application et s’applique sous certaines conditions. J’espère
 que cet article vous aura permis de comprendre les faiblesses mais
 surtout les forces des bases de données graphe et, qui sait, vous
-donnera envie d’approfondir le sujet.
-
-Je ne prétends pas à l’exhaustivité, donc si vous souhaitez que je
+donnera envie d’approfondir le sujet.</p>
+</div>
+<div class="paragraph">
+<p>Je ne prétends pas à l’exhaustivité, donc si vous souhaitez que je
 détaille d’autres parties (exemple : Cypher), je peux éventuellement y
-consacrer d’autres articles.
-
-`<shameless_plug>`Si cet article vous a plu, je peux aussi venir en
+consacrer d’autres articles.</p>
+</div>
+<div class="paragraph">
+<p><code>&lt;shameless_plug&gt;`Si cet article vous a plu, je peux aussi venir en
 parler dans un User Group de votre ville et je donne des
-http://www.lateral-thoughts.com/formation-neo4j[formations customisables
-sur Neo4j] et en français !`</shameless_plug>`
-</div>
-</div>
+<a href="http://www.lateral-thoughts.com/formation-neo4j">formations customisables
+sur Neo4j</a> et en français !</code>&lt;/shameless_plug&gt;`</p>
 </div>
 </div>
 </div>
