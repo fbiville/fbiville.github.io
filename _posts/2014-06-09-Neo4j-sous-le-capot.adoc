@@ -505,7 +505,10 @@ telle sorte, qu’à tout instant, le nombre de relations inter-shards soit
 minimisé. Cela est d’autant plus critique que les shards sont distants
 (imaginez la latence réseau induite par une traversée qui commence par
 un shard hébergé à Los Angeles pour finir dans un shard à Pékin).
-image:/blog/public/neo4j_shards.png[neo4j_shards.png,title="neo4j_shards.png, Jun 2014"]
+
+image::neo4j_shards.png[]
+
+
 C’est un
 http://alexaverbuch.blogspot.fr/2010/04/me-my-names-alex-im-currently.html[sujet
 de recherche] à part entière et Neo Technology travaille depuis
@@ -541,13 +544,16 @@ Tout d’abord, cette idée s’applique à Neo4j en mode
 http://docs.neo4j.org/chunked/stable/ha-how.html[High Availability]. En
 d’autres termes, cela ne s’applique qu'à une instance Neo4j au sein
 d'un __cluster__.
+
 Non seulement vous bénéficiez d’une réplication master/replica, mais
 vous pouvez également bénéficier de __sharding__.
 Oui, oui, j’ai bien dit __sharding__.
 Malheureusement, pour les raisons évoquées plus haut, il ne s'agit pas
 de __sharding__ sur les données à proprement parler. Comme le titre
 l’évoque, il s’agit de sharding sur le cache.
+
 Comment est-ce possible ? C’est tout simple !
+
 Les caches de Neo4j sont des caches LRU, ils ne conservent que les
 entrées les plus récentes en leur sein. S’il existait un moyen de
 répartir les requêtes de façon persistante entre chaque instance de mon
