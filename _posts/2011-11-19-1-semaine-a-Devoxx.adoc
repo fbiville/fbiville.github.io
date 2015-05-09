@@ -61,16 +61,6 @@ de Morlhon] et http://blog.javabien.net/[David Gageot] organisent
 http://www.code-story.net/[un concours] afin de sélectionner deux autres
 acolytes pour coder une application top-moumoute durant l'événement. +
 
-Comptes rendus plus détaillés
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Rassurez-vous, des publications plus détaillées sur les conférences sont
-en cours de rédaction ;)
-
- * Nouveaux langages
- * Le successeur de Java révélé
- * Mobilité
-
 
 One more thing...
 ~~~~~~~~~~~~~~~~~
