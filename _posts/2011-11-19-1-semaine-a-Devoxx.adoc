@@ -65,14 +65,12 @@ Comptes rendus plus détaillés
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Rassurez-vous, des publications plus détaillées sur les conférences sont
-en cours de rédaction ;) +
- +
+en cours de rédaction ;)
 
-* link:/?post/2011/11/20/Ma-semaine-%C3%A0-Devoxx[Nouveaux langages]
-* Le successeur de Java révélé
-* Mobilité
+ * Nouveaux langages
+ * Le successeur de Java révélé
+ * Mobilité
 
- +
 
 One more thing...
 ~~~~~~~~~~~~~~~~~
