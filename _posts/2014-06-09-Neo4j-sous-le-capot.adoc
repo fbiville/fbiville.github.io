@@ -231,11 +231,11 @@ Pour cela, regardons plutôt le code Java (eh oui, c’est ça qui est cool
 avec les https://github.com/neo4j/neo4j[projets open source] dans les
 langages qu’on connaît bien) : 
 
-``
-
+[source,java]
+----
 public class RelationshipRecord extends PrimitiveRecord
 
-\{
+{
 
     private long firstNode;
 
@@ -252,6 +252,8 @@ public class RelationshipRecord extends PrimitiveRecord
     private long secondNextRel = Record.NO_NEXT_RELATIONSHIP.intValue();
 
     // [...]
+    
+----
 
 Passons sur le formatage digne des codeurs C les plus chevronnés (qui
 pour une Pull Request pour remettre les accolades en fin de ligne ? :P).
@@ -276,7 +278,7 @@ d’arrivée
 
 Une illustration vaut mieux qu’un long discours :
 
-image:/blog/public/.graph_on_disk_bis_m.png[graph_on_disk_bis.png,title="graph_on_disk_bis.png, Jun 2014"]
+image::graph_on_disk_bis.png[]
 
 Il s’agit exactement de ce que j’ai tenté d’expliquer : les flèches
 rouges symbolisent les liens portés par les enregistrements de
@@ -545,9 +547,11 @@ champ d’application et s’applique sous certaines conditions. J’espère
 que cet article vous aura permis de comprendre les faiblesses mais
 surtout les forces des bases de données graphe et, qui sait, vous
 donnera envie d’approfondir le sujet.
+
 Je ne prétends pas à l’exhaustivité, donc si vous souhaitez que je
 détaille d’autres parties (exemple : Cypher), je peux éventuellement y
 consacrer d’autres articles.
+
 `<shameless_plug>`Si cet article vous a plu, je peux aussi venir en
 parler dans un User Group de votre ville et je donne des
 http://www.lateral-thoughts.com/formation-neo4j[formations customisables
