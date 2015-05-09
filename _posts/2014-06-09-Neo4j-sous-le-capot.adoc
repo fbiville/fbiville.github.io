@@ -443,11 +443,14 @@ exemple : ) les cycles GC de votre instance Neo et vise-versa.
 
 
 et le reste
-+++++++++++++++
++++++++++++
 
 À partir de là, les APIs unitaires Java prennent le relais, suivies des
 APIs de traversées, Cypher et les APIs REST !
-image:/blog/public/.neo4j_archi_m.png[neo4j_archi.png,title="neo4j_archi.png, Jun 2014"]
+
+
+image::neo4j_archi.png[]
+
 Gestion de la concurrence
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
