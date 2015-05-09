@@ -17,7 +17,7 @@ Nous eûmes d'abord le plaisir d'assister à une démo autour de
 l'utilisation du canvas, présentée par David Catuhe, développeur employé
 par Microsoft. Cela m'a rappelé d'ailleurs un tweet, qui énonçait :
 
-image:ms_tweet.jpg[] 
+image::ms_tweet.png[] 
 
 
 Ce fut un peu le même état d'esprit. Très bon speaker, David s'est
