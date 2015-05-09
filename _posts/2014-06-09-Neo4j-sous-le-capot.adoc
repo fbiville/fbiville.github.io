@@ -442,7 +442,7 @@ isolée, afin que votre application ne vienne pas perturber (comme par
 exemple : ) les cycles GC de votre instance Neo et vise-versa.
 
 
-... et le reste
+et le reste
 +++++++++++++++
 
 À partir de là, les APIs unitaires Java prennent le relais, suivies des
