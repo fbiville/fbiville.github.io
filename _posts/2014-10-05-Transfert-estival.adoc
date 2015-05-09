@@ -5,8 +5,10 @@ Mais pourquoi ?!
 
 Pour avoir un dictionnaire chaque année, bien sûr ! (Désolé, mes talents
 GIMPiens sont encore limités).
- +
-image:/blog/public/.rtfv_m.png[rtfv.png,title="rtfv.png, Oct 2014"] +
+
+image::rtfv_m.png[]
+
++
 Plus sérieusement, le fait de partir de Lateral Thoughts, société à
 laquelle j’étais associé et où je disposais d’une grande autonomie, peut
 poser question.
