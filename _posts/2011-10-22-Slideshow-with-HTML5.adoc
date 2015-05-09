@@ -93,7 +93,7 @@ if (!slideContainer.style.animationName) {
 	
     for (var i = 0; !hasKeyFrameSupport && i < vendorPrefixes.length; i++) {
 		var animation = vendorPrefixes[i]+'AnimationName';
-    	hasKeyFrameSupport = (slideContainer.style[animation] !== undefined);
+		hasKeyFrameSupport = (slideContainer.style[animation] !== undefined);
 	}
 
 	if (!hasKeyFrameSupport) {
