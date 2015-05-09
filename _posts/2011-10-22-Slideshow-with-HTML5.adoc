@@ -92,7 +92,9 @@ var slideContainer = document.getElementById('myElementId');
 if (!slideContainer.style.animationName) {
 	
     for (var i = 0; !hasKeyFrameSupport && i < vendorPrefixes.length; i++) {
-		hasKeyFrameSupport = (slideContainer.style[vendorPrefixes[i]+'AnimationName'] !== undefined);    			}
+		var animation = vendorPrefixes[i]+'AnimationName';
+    	hasKeyFrameSupport = (slideContainer.style[animation] !== undefined);
+	}
 
 	if (!hasKeyFrameSupport) {
 		var upgrade = document.createElement('p');
