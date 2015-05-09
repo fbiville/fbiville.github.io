@@ -1,4 +1,5 @@
 # Paris JS #20
+
 Lateral Thoughts ?
 ~~~~~~~~~~~~~~~~~~
 
@@ -64,7 +65,7 @@ interface de saisie afin de rendre la définition du contrat un tantinet
 moins fastidieuse.
 
 Je vous laisse juger avec un exemple d'application :
-http://blog.aerys.in/2012/02/27/the-mirage-shoot-the-flying-saucers-out-of-the-sky/.
+http://blog.aerys.in/2012/02/27/the-mirage-shoot-the-flying-saucers-out-of-the-sky/[].
 
 AMD loader pour un code Javascript organisé et performant
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,11 +78,10 @@ AMD, Asynchronous Module Definition, est une API destinée à donner la
 possibilité de regrouper des fonctionnalités implémentées en Javascript
 non plus seulement par simples fichiers, mais par module, avec
 déclaration de ses dépendances
-(http://en.wikipedia.org/wiki/Inversion_of_control[ça ne vous rappelle
-rien ?]). Un module peut donc se définir comme suit :
+(http://en.wikipedia.org/wiki/Inversion_of_control[ça ne vous rappelle rien ?]). Un module peut donc se définir comme suit :
 
-``
-
+[source,javascript]
+----
 define("NomModule", ["package2/moduleA", "./moduleB"], +
     function(depA, depB) \{ +
         //... +
@@ -89,6 +89,7 @@ define("NomModule", ["package2/moduleA", "./moduleB"], +
         //... +
     } +
 });
+----
 
 De plus, le chargement asynchrone déporte le chargement des scripts une
 fois l'arbre DOM complètement chargé
@@ -102,44 +103,30 @@ https://github.com/emmanuelremy/blog_amd/blob/master/parisjs_loader_amd.pdf?raw=
 Sencha Touch 2 en action
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://fr.linkedin.com/pub/julien-bouquillon/19/b78/438[Julien
-Bouquillon] est venu ensuite coder en live une appli Twitteresque de
-démo, basée - vous l'aurez compris - sur
-http://www.sencha.com/products/touch/[Sencha Touch]. On sentait que
-Julien était bien rôdé et n'a connu aucun couac durant ces quelques
-minutes de codage intensif. Le code qui en ressort est somme toute
-propre, maintenable et lisible. S'il y a une toute petite critique à
-émettre malgré tout, c'est l'absence d'appareils mobiles pour la
-démonstration. Personnellement, la démonstration d'un énième framework
-MVC (dans quelque langage qu'il soit) ne me fait pas spécialement rêver
-et la force de Sencha Touch réside surtout, si j'ai bien compris, dans
-la variété des appareils qu'elle vise. C'est peut-être cet aspect qu'il
-aurait fallu mettre un peu en avant. +
+http://fr.linkedin.com/pub/julien-bouquillon/19/b78/438[Julien Bouquillon] est venu ensuite coder en live une appli Twitteresque de démo, basée - vous l'aurez compris - sur http://www.sencha.com/products/touch/[Sencha Touch]. 
 
-Néanmoins, la critique est aisée, l'art est difficile, la session de
-live coding a été très bien ficelée, merci à Julien de s'être jeté à
-l'eau !
+On sentait que Julien était bien rôdé et n'a connu aucun couac durant ces quelques minutes de codage intensif. Le code qui en ressort est somme toute propre, maintenable et lisible. S'il y a une toute petite critique à émettre malgré tout, c'est l'absence d'appareils mobiles pour la démonstration. Personnellement, la démonstration d'un énième framework MVC (dans quelque langage qu'il soit) ne me fait pas spécialement rêver
+et la force de Sencha Touch réside surtout, si j'ai bien compris, dans la variété des appareils qu'elle vise. 
+
+C'est peut-être cet aspect qu'il aurait fallu mettre un peu en avant.
+
+Néanmoins, la critique est aisée, l'art est difficile, la session de live coding a été très bien ficelée, merci à Julien de s'être jeté à l'eau !
 
 docco viewer
 ^^^^^^^^^^^^
 
-Non, docco viewer n'est pas un appareil à rayon X permettant de savoir
-si oui ou non votre kiki pourrait s'apparenter à celui de l'acteur
-italien bien connu. Docco viewer, présentée et ré-implémenté par le
-show-man http://jetienne.com/[Jérôme Étienne], est un outil de
-génération de documentation (au même titre que
-http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html[Javadoc]).
-Popularisé par backbone.js, Docco permet de visualiser côte-à-côte code
-source et documentation formatée.
+Docco viewer, présentée et ré-implémenté par le show-man http://jetienne.com/[Jérôme Étienne], est un outil de génération de documentation (au même titre que http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html[Javadoc]).
 
-Vous pourrez retrouver les slides de la présentation ici :
-http://jeromeetienne.github.com/slides/doccoviewer.parisjs20.
+Popularisé par backbone.js, Docco permet de visualiser côte-à-côte code source et documentation formatée.
+
+Vous pourrez retrouver les slides de la présentation http://jeromeetienne.github.com/slides/doccoviewer.parisjs20[ici].
+
 
 envi: vim and dwm having a baby at a party organized by mosaic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Voici enfin mon coup de coeur de la soirée. Si le titre vous évoque
-aussi peu de chose que du plutonien (qui n'ont d'ailleurs pas enlevé
+aussi peu de choses que du plutonien (qui n'ont d'ailleurs pas enlevé
 Wayne), pas de panique ! Je vais essayer de vous expliquer l'idée.
 
 https://twitter.com/#%21/spolu/[Stanislas Polu] est un récent converti
@@ -166,6 +153,7 @@ N'hésitez à regarder son projet sur
 https://github.com/spolu/envi[Github]. Il compte sur vous pour réussir à
 faire avancer le projet (partage read-only de l'écran...).
 
+
 Last but not least
 ~~~~~~~~~~~~~~~~~~
 
@@ -173,6 +161,4 @@ Vous avez de contribuer à ParisJS mais ne savez pas trop comment ?
 Sachez que Paris JS recherche régulièrement des speakers, des sponsors
 mais aussi des âmes charitables prêtes à aider dans la mise à jour du
 site et du programme, à l'organisation des salles le jour J. N'hésitez
-plus et
-https://groups.google.com/forum/?fromgroups#%21forum/parisjs[contactez
-les] !
+plus et https://groups.google.com/forum/?fromgroups#%21forum/parisjs[contactez-les] !
