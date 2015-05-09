@@ -1,7 +1,4 @@
 # Paris JS #21
-Erratum du link:/?post/2012/07/01/Compte-rendu-du-Paris-JS-20[compte
-rendu #20]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Premièrement, je dois une grosse excuse à messieurs Bassetto et Doulcet
 pour ne pas avoir relaté leur présentation-compte rendu du BlackBerry 10
@@ -14,7 +11,8 @@ relations avec ces derniers.
 
 Bref, si vous aimez les niches, BB et son OS, vous êtes soit un chien
 pédophile soit un développeur qui devrait regarder ce site:
-http://www.blackberryjamworldtour.com/.
+http://www.blackberryjamworldtour.com/[].
+
 
 Ze number #21
 ~~~~~~~~~~~~~
@@ -66,19 +64,15 @@ jQuery sur les bonnes pratiques autour du développement de plug-ins (en
 réaction à la jungle progressive de plug-ins pour la plupart assez
 médiocres).
 
-* Côté tests, vous pourrez donc jeter un oeil à
-http://docs.jquery.com/QUnit[QUnit]
-* Côté modularité, le problème est donc réglé via l'utilisation du
-système de plug-ins jQuery
-* Côté simplicité, Mathieu recommande de se limiter à 1 fichier JS, 1
-fichier HTML et 1 fichier CSS dans la mesure du possible
-* Côté démonstration, un simple lien vers http://jsfiddle.net/[JSFiddle]
-suffit (remarquez comment l'utilisation de JSFiddle se calque
-parfaitement avec le principe précédent)
-* Côté docs, c'est simple : // ou /* */ :)
+ * Côté tests, vous pourrez donc jeter un oeil à http://docs.jquery.com/QUnit[QUnit]
+ * Côté modularité, le problème est donc réglé via l'utilisation du système de plug-ins jQuery
+ * Côté simplicité, Mathieu recommande de se limiter à 1 fichier JS, 1 fichier HTML et 1 fichier CSS dans la mesure du possible
+ * Côté démonstration, un simple lien vers http://jsfiddle.net/[JSFiddle] suffit (remarquez comment l'utilisation de JSFiddle se calque parfaitement avec le principe précédent)
+ * Côté docs, c'est simple : // ou /* */ :)
 
 Vous pourrez trouver une version augmentée de la présentation
 http://www.slideshare.net/mathrobin/construire-un-plugin-pour-jquery-15[ici].
+
 
 Création de jeux en HTML5 et social gaming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,6 +116,7 @@ se tient en Octobre.
 Si vous souhaitez faire avancer le web avec votre (début d')application,
 n'hésitez plus et contactez Thomas qui coordonne les candidatures
 françaises.
+
 
 Vues hiérarchiques avec cell.js
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
