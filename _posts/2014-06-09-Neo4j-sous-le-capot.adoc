@@ -214,7 +214,7 @@ tout dans `neostore.nodestore.db`)
 Conceptuellement, cela pourrait se représenter ainsi (slide
 outrageusement et à de nombreuses reprises emprunté à Neo Technology) : 
 
-image:/blog/public/.graph_on_disk_m.png[graph_on_disk.png,title="graph_on_disk.png, Jun 2014"]
+image::graph_on_disk.png[]
 
 Tout repose sur la structuration des enregistrements de relations. Cela
 est plutôt intuitif : les relations sont l’épine dorsale du graphe.
