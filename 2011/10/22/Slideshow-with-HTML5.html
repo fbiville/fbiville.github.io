@@ -23,7 +23,7 @@
     <meta property="og:description" content="When you hear slideshow, you probably think of Javascript, maybe via your favorite framework or not. Well, those days are over. HTML5 is more and more present, and yes, you should begin learning it. Today, we are gonna focus on..." />
     <meta property="og:url" content="https://fbiville.github.io/2011/10/22/Slideshow-with-HTML5.html" />
     <meta property="article:published_time" content="2011-10-21T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-09T13:05:05.437Z" />
+    <meta property="article:modified_time" content="2015-05-09T13:09:22.045Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Slideshow with HTML5" />
@@ -45,7 +45,7 @@
     "headline": "Slideshow with HTML5",
     "url": "https://fbiville.github.io/2011/10/22/Slideshow-with-HTML5.html",
     "datePublished": "2011-10-21T22:00:00.000Z",
-    "dateModified": "2015-05-09T13:05:05.437Z",
+    "dateModified": "2015-05-09T13:09:22.045Z",
     "description": "When you hear slideshow, you probably think of Javascript, maybe via your favorite framework or not. Well, those days are over. HTML5 is more and more present, and yes, you should begin learning it. Today, we are gonna focus on..."
 }
     </script>
@@ -134,39 +134,40 @@ vendor prefix</a>.<br>
 <h3 id="_animation_settings">Animation settings</h3>
 <div class="paragraph">
 <p>Now that you have defined the animation appearance, it must be applied
-to an element and the animation behavior must be set.<br>
-<br>
-Here is an interesting subset of the
-<a href="http://www.w3.org/TR/css3-animations/">available animation
-sub-properties</a>:<br></p>
+to an element and the animation behavior must be set.<br></p>
+</div>
+<div class="paragraph">
+<p>Here is an interesting subset of the <a href="http://www.w3.org/TR/css3-animations/">available animation sub-properties</a>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>animation-name: as you guess, this corresponds to the name in the
-@keyframes declaration (here: AnimationName) ;</p>
+<p>animation-name: as you guess, this corresponds to the name in the @keyframes declaration (here: AnimationName) ;</p>
 </li>
 <li>
-<p>animation-duration: the number of seconds to complete one cycle
-(basically, from 0 to 100%) ;</p>
+<p>animation-duration: the number of seconds to complete one cycle (basically, from 0 to 100%) ;</p>
 </li>
 <li>
 <p>animation-iteration-count: how many time the keyframe will be played ;</p>
 </li>
 <li>
-<p>animation-timing-function: you can pick up amongst
-<a href="http://www.w3.org/TR/css3-animations/#animation-timing-function_tag">a
-bunch of predefined functions</a> to describe the timing acceleration
-curve.</p>
+<p>animation-timing-function: you can pick up amongst <a href="http://www.w3.org/TR/css3-animations/#animation-timing-function_tag">a bunch of predefined functions</a> to describe the timing acceleration curve.</p>
 </li>
 </ul>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">#myElementId {
+	animation-name: AnimationName;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p><code>#myElementId {     animation-name: AnimationName;    animation-duration: 20s;    animation-iteration-count: infinite;    animation-timing-function: ease-in-out;}</code><br>
-<br>
-In this example, the animation will loop forever, each cycle taking 20
-seconds to complete following an ease-in-out curve.<br>
-<br></p>
+<p>In this example, the animation will loop forever, each cycle taking 20
+seconds to complete following an ease-in-out curve.<br></p>
 </div>
 </div>
 <div class="sect2">
@@ -183,29 +184,44 @@ certainly gonna use for other experiments.<br>
 <br>
 Keyframes also suffer from that inconsistent support, I wrote a small
 and ad-hoc Javascript snippet pretty much inspired from one
-<a href="https://developer.mozilla.org/en/CSS/CSS_animations/Detecting_CSS_animation_support">Mozilla
-Developer Network article</a>.<br>
-<br>
-<code>var hasKeyFrameSupport = false;var vendorPrefixes = 'Webkit Moz O ms Khtml'.split(' ');var slideContainer = document.getElementById('myElementId');if (!slideContainer.style.animationName) {    for (var i = 0; !hasKeyFrameSupport &amp;&amp; i &lt; vendorPrefixes.length; i++) {          hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    }    if(!hasKeyFrameSupport) {        var upgrade = document.createElement('p');        upgrade.setAttribute('id', 'enlargeYourCssSupport');        upgrade.appendChild(document.createTextNode('Enlarge your CSS support, upgrade your browser!'));        slideContainer.appendChild(upgrade);    }}</code><br>
-<br>
-Once again, this is not rocket science. The following script first
+<a href="https://developer.mozilla.org/en/CSS/CSS_animations/Detecting_CSS_animation_support">Mozilla Developer Network article</a>.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">var hasKeyFrameSupport = false;
+var vendorPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+var slideContainer = document.getElementById('myElementId');
+if (!slideContainer.style.animationName) {
+
+    for (var i = 0; !hasKeyFrameSupport &amp;&amp; i &lt; vendorPrefixes.length; i++) {
+    	hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    		}
+
+	if (!hasKeyFrameSupport) {
+    	var upgrade = document.createElement('p');
+        upgrade.setAttribute('id', 'upgrade');
+        upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
+        slideContainer.appendChild(upgrade);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once again, this is not rocket science. The following script first
 checks the standard animationName property existence. Then, the script
 iterates over several vendor-prefixed animation name property just to
-check if one is supported.<br>
-<br>
-If none of the previous tests succeed, a warning good-tasting message
+check if one is supported.</p>
+</div>
+<div class="paragraph">
+<p>If none of the previous tests succeed, a warning good-tasting message
 notifies the user that his computer might be stuck in a spatiotemporal
 distortion causing some deprecated pieces of software to live longer
-than they should.<br>
-<br></p>
+than they should.<br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_lorem_ipsum_2_0">lorem ipsum 2.0</h4>
 <div class="paragraph">
-<p>Not much to say except that you should check <a href="http://slipsum.com/">Samuel
-L. Ipsum</a> out.<br>
-<br></p>
+<p>Not much to say except that you should check <a href="http://slipsum.com/">SamuelL. Ipsum</a> out.</p>
 </div>
 </div>
 <div class="sect3">
@@ -215,15 +231,13 @@ L. Ipsum</a> out.<br>
 gonna be for sure a full post about it. In short: the new ESPN for
 esports events, hosted by Google App Engine, powered by Spring MVC and
 JPA and awesomely rendered by truly awesome webdesigners (and this
-obviously does not include myself) and HTML5 :)<br>
-<br></p>
+obviously does not include myself) and HTML5 :)<br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_tl_dr">tl;dr?</h4>
 <div class="paragraph">
-<p>Check the full example
-<a href="https://github.com/fbiville/html5fun/tree/master/slideshow">here</a>!<br></p>
+<p>Check the full example <a href="https://github.com/fbiville/html5fun/tree/master/slideshow">here</a>!</p>
 </div>
 </div>
 </div>
