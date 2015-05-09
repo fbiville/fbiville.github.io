@@ -44,11 +44,9 @@ https://github.com/joel-costigliola/assertj-examples/tree/master/src/test/java/o
 Grab it while it's hot!
 ~~~~~~~~~~~~~~~~~~~~~~~
 
- +
 
 image::AssertJ.png[]
- +
- +
+
 
 While I already have some plans to provide better assertions on
 collections of Node/Relationship, I am very eager to gather your
@@ -56,8 +54,8 @@ feedback on this.
 
 Feel free to send suggestions on
 https://github.com/joel-costigliola/assertj-neo4j/issues[Github] or ping me on https://twitter.com/fbiville[Twitter]!
- +
- +
+
+
 
 HAPPY NEW YEAR! :-)
 ~~~~~~~~~~~~~~~~~~~
