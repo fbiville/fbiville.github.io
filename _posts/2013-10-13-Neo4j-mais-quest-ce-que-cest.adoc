@@ -1,3 +1,5 @@
+# Neo4j : mais qu'est-ceque c'est ?
+
 Les graphes sont partout et il y a une bonne raison à cela : il s'agit
 de l'une des structures de données les plus génériques qui existent dans
 notre panoplie de développeur. Tellement générique qu'elle se retrouve
@@ -312,10 +314,12 @@ Par des noms de variable pardi !
 
 Prenons un exemple de requête complète :
 
- MATCH (**flo**:HUMAN:MALE)-[**luv**:LOVES]-(**didi**:HUMAN:FEMALE) +
- WHERE **flo**.firstName = 'Florent' AND **didi**.firstName = '...' //
-;-) +
- RETURN **flo**, **didi**, **luv**.since
+[source,cypher]
+----
+ MATCH (flo:HUMAN:MALE)-[luv:LOVES]-(didi:HUMAN:FEMALE
+ WHERE flo.firstName = 'Florent' AND didi.firstName = '...' // ;-)
+ RETURN flo, didi, luv.since
+----
 
 Comme vous le voyez, vous pouvez utiliser à peu près n'importe quel nom
 de variable, que vous pourrez reprendre ensuite dans d'autres clauses
@@ -328,16 +332,10 @@ Il existe bien d'autres aspects que je n'ai pas décrits ici :
 * aggrégation
 * requêtes d'écriture
 * indexation
-* les alternatives à Cypher : le
-http://docs.neo4j.org/chunked/milestone/tutorial-traversal-java-api.html[framework
-de traversée], le langage
-https://github.com/neo4j-contrib/gremlin-plugin[Gremlin] devéloppé par
+* les alternatives à Cypher : le http://docs.neo4j.org/chunked/milestone/tutorial-traversal-java-api.html[framework de traversée], le langage https://github.com/neo4j-contrib/gremlin-plugin[Gremlin] devéloppé par
 Tinkerpop
 
- <shamelessPlug> Les
-http://www.lateral-thoughts.com/formations[formations] ou
-http://www.brownbaglunch.fr/baggers.html#Florent_Biville[BBL] sont
-l'occasion d'en parler </shamelessPlug> .
+ <shamelessPlug> Les http://www.lateral-thoughts.com/formations[formations] ou http://www.brownbaglunch.fr/baggers.html#Florent_Biville[BBL] sont l'occasion d'en parler </shamelessPlug> .
 
 Retour à Viadeo : implementation time!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -372,11 +370,12 @@ paramétrées].
 
 Vous arrivez donc à la requête suivante :
 
- MATCH
-(suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT) +
- WHERE me.name = \{name} // \{name} est un paramètre nommé, passé à
-l'exécution +
+[source,cypher]
+----
+ MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT)
+ WHERE me.name = {name} // {name} est un paramètre nommé, passé à l'exécution
  RETURN me, suggestions
+----
 
 Plutôt expressif, non ? Vous traversez deux relations IN_CONTACT_WITH
 pour trouver des suggestions de contact.
@@ -400,10 +399,13 @@ l'utilisation de
 http://docs.neo4j.org/chunked/milestone/query-aggregation.html#aggregation-distinct[DISTINCT])
 ou encore :
 
- MATCH
-(suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT) +
- WHERE me.name = \{name} *AND me <> suggestions* +
+
+[source,cypher]
+----
+ MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT)
+ WHERE me.name = \{name} AND me <> suggestions +
  RETURN me, suggestions
+----
 
 Notez enfin que vous pouvez reformuler le _pattern_ de MATCH de façon à
 ce qu'elle ne référence vraiment que ce qui est utilisé dans la clause
@@ -411,11 +413,12 @@ RETURN. Je vais vous présenter une façon de faire et vous laisser
 l'autre comme exercice ;-)
 
 Avant de vous montrer cette reformulation, voici la syntaxe complète
-d'une relation comme l'indique la
-http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships[documentation]
+d'une relation comme l'indique la http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships[documentation]
 de Cypher:
 
+----
  [variableName:RELATION_TYPE*minHops..maxHops]
+----
 
 La partie de gauche est déjà connue. La partie précédée d'une
 astérisque, quant à elle, paraît plus exotique. Elle permet de spécifier
@@ -427,9 +430,13 @@ moins égal à 1 (ami de) ou plus (ami d'ami d'ami d'ami d'ami...).
 peut donc être réécrite comme suit (avec une légère feinte : minHops est
 égal à maxHops) :
 
+
+[source,cypher]
+----
  MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH***2..2**]-(me:CONTACT) +
  WHERE me.name = \{name} AND me <> suggestions +
  RETURN me, suggestions
+----
 
 Dans le cadre de requêtes plus complexes, vous pourriez simplifier la
 clause MATCH et imposer le chemin intermédiaire requis dans la clause
@@ -457,10 +464,8 @@ Petit rappel du graphe :
 * les entreprises auront un label COMPANY
 * les noeuds ont (pour simplifier) une propriété name qui contient nom
 et prénom
-* le fait d'être en contact est matérialisé par
-(:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)
-* le fait de travailler pour une entreprise s'écrit :
-(:CONTACT)-[:WORKED_IN]->(:COMPANY)
+* le fait d'être en contact est matérialisé par `(:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)`
+* le fait de travailler pour une entreprise s'écrit : `(:CONTACT)-[:WORKED_IN]->(:COMPANY)`
 
 Le début de la requête est exactement le même que précédemment : je
 récupère les contacts de contacts.
@@ -468,6 +473,7 @@ récupère les contacts de contacts.
 À VOUS, MAINTENANT !
 
 Promis, je donne _une_ solution dans le prochain article !
+
 
 Le mot de la fin
 ~~~~~~~~~~~~~~~~
@@ -477,11 +483,8 @@ moteur de recommandations] digne de ce nom. Néanmoins, vous avez pu
 d'ores et déjà constater que les pré-requis pour jouer avec Neo4J sont
 loin d'être insurmontables :
 
-* il suffit d'ouvrir http://console.neo4j.org dans votre navigateur
-favori
-* et écrire quelques requêtes
-http://docs.neo4j.org/chunked/2.0.0-M05/cypher-query-lang.html[Cypher]
-pour vous faire la main
+* il suffit d'ouvrir http://console.neo4j.org[] dans votre navigateur favori
+* et écrire quelques requêtes http://docs.neo4j.org/chunked/2.0.0-M05/cypher-query-lang.html[Cypher] pour vous faire la main
 
 ... pour commencer à avoir des retours très rapides. Même pas besoin
 d'installer Neo4J. Une feuille de papier, un crayon et un navigateur
@@ -503,22 +506,18 @@ projet Java avec Neo.
 En attendant, je vais simplement paraphraser
 https://twitter.com/peterneubauer[Peter Neubauer] et conclure par :
 
-_________________________________________________
-If you can write, you can code. +
- If you can sketch, you can use a graph database.
-_________________________________________________
+____
+If you can write, you can code.
+If you can sketch, you can use a graph database.
+____
 
 Approfondir
 ~~~~~~~~~~~
 
 Rencontres : http://www.meetup.com/graphdb-france/[Graph DB Paris]
 
-Entraide : https://groups.google.com/forum/#!forum/neo4jfr[Google Groups
-Neo4J FR]
+Entraide : https://groups.google.com/forum/#!forum/neo4jfr[Google Groups Neo4J FR]
 
-Conseil / formation : http://www.lateral-thoughts.com/[Lateral
-Thoughts],
-http://www.brownbaglunch.fr/baggers.html#Florent_Biville[Brown Bag
-Lunch]
+Conseil / formation : http://www.lateral-thoughts.com/[Lateral Thoughts], http://www.brownbaglunch.fr/baggers.html#Florent_Biville[Brown Bag Lunch]
 
 Un grand merci à Mathilde, Hugo, Pierre-Yves pour leur relecture !
