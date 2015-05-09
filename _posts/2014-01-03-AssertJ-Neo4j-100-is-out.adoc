@@ -12,6 +12,7 @@ They are, at the time of writing, broken down into three modules:
  * https://github.com/joel-costigliola/assertj-joda-time[AssertJ-Joda-Time]: assertions for the Java http://www.joda.org/joda-time/[date and time API] written by Stephen Colebourne
 
 And affiliated with:
+
  * https://github.com/joel-costigliola/assertj-assertions-generator[AssertJ-generator-plugin]: generate your own custom assertions! (check https://github.com/joel-costigliola/assertj-assertions-generator-maven-plugin[the Maven plugin] out!)
  * https://github.com/joel-costigliola/assertj-examples[AssertJ-examples]: a project aggregating all modules and plugins, showing concrete examples of use
 
