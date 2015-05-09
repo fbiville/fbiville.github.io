@@ -1,10 +1,11 @@
 # Berlin, la trilogie
+
 2006 : premiers pas en dehors de France
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il y a 6 ans, je vivais ma première expérience à l'international en
 cette bonne ville de Berlin, alors en pleine effervescence pour la Coupe
-du Monde, link:Sportfreunde%20Stiller[Sportfreunde Stiller] hantait
+du Monde, https://www.youtube.com/watch?v=rj9KyVpCfYg[Sportfreunde Stiller] hantait
 l'Allemagne avec son hymne "54, '74, '90, 2006" (bon sur la partie
 "werden wir Weltmeister sein", l'avenir montrera qu'ils s'étaient un peu
 plantés, mais bref).
@@ -15,7 +16,7 @@ administratives du bureau d'études de Rolls-Royce Deutschland (situé
 alors au sud de Berlin, à Dahlewitz) que je partageais avec des
 français, un italien et deux allemands. Bref, un contexte sympathique
 mais un boulot somme toute pas très intéressant et une vision du boulot
-d'ingénieur assez peu ragoûtante :) +
+d'ingénieur assez peu ragoûtante :)
 
 2009 : le retour du Padawan
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
