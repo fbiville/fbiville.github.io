@@ -56,9 +56,9 @@ Here is an interesting subset of the http://www.w3.org/TR/css3-animations/[avail
 ----
 #myElementId {     
 	animation-name: AnimationName;    
-    animation-duration: 20s;    
-    animation-iteration-count: infinite;    
-    animation-timing-function: ease-in-out;
+	animation-duration: 20s;    
+	animation-iteration-count: infinite;    
+	animation-timing-function: ease-in-out;
 }
 ----
 
