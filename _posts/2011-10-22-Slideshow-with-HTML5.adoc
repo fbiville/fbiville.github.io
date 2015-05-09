@@ -92,13 +92,13 @@ var slideContainer = document.getElementById('myElementId');
 if (!slideContainer.style.animationName) {
 	
     for (var i = 0; !hasKeyFrameSupport && i < vendorPrefixes.length; i++) {
-    	hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    		}
+		hasKeyFrameSupport = (slideContainer.style[vendorPrefixes[i]+'AnimationName'] !== undefined);    			}
 
 	if (!hasKeyFrameSupport) {
-    	var upgrade = document.createElement('p');
-        upgrade.setAttribute('id', 'upgrade');        				
-        upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
-        slideContainer.appendChild(upgrade);    
+		var upgrade = document.createElement('p');
+		upgrade.setAttribute('id', 'upgrade');        				
+		upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
+		slideContainer.appendChild(upgrade);    
     }
 }
 ----
