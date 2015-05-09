@@ -42,26 +42,29 @@ Animation settings
 
 Now that you have defined the animation appearance, it must be applied
 to an element and the animation behavior must be set. +
- +
-Here is an interesting subset of the
-http://www.w3.org/TR/css3-animations/[available animation
-sub-properties]: +
 
-* animation-name: as you guess, this corresponds to the name in the
-@keyframes declaration (here: AnimationName) ;
-* animation-duration: the number of seconds to complete one cycle
-(basically, from 0 to 100%) ;
-* animation-iteration-count: how many time the keyframe will be played ;
-* animation-timing-function: you can pick up amongst
-http://www.w3.org/TR/css3-animations/#animation-timing-function_tag[a
-bunch of predefined functions] to describe the timing acceleration
-curve.
 
-`#myElementId {     animation-name: AnimationName;    animation-duration: 20s;    animation-iteration-count: infinite;    animation-timing-function: ease-in-out;}` +
- +
+Here is an interesting subset of the http://www.w3.org/TR/css3-animations/[available animation sub-properties]: 
+
+ * animation-name: as you guess, this corresponds to the name in the @keyframes declaration (here: AnimationName) ;
+ * animation-duration: the number of seconds to complete one cycle (basically, from 0 to 100%) ;
+ * animation-iteration-count: how many time the keyframe will be played ; 
+ * animation-timing-function: you can pick up amongst http://www.w3.org/TR/css3-animations/#animation-timing-function_tag[a bunch of predefined functions] to describe the timing acceleration curve.
+
+
+[source,css]
+----
+#myElementId {     
+	animation-name: AnimationName;    
+    animation-duration: 20s;    
+    animation-iteration-count: infinite;    
+    animation-timing-function: ease-in-out;
+}
+----
+
+
 In this example, the animation will loop forever, each cycle taking 20
 seconds to complete following an ease-in-out curve. +
- +
 
 A live example
 ~~~~~~~~~~~~~~
@@ -78,28 +81,44 @@ certainly gonna use for other experiments. +
  +
 Keyframes also suffer from that inconsistent support, I wrote a small
 and ad-hoc Javascript snippet pretty much inspired from one
-https://developer.mozilla.org/en/CSS/CSS_animations/Detecting_CSS_animation_support[Mozilla
-Developer Network article]. +
- +
-`var hasKeyFrameSupport = false;var vendorPrefixes = 'Webkit Moz O ms Khtml'.split(' ');var slideContainer = document.getElementById('myElementId');if (!slideContainer.style.animationName) {    for (var i = 0; !hasKeyFrameSupport && i < vendorPrefixes.length; i++) {          hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    }    if(!hasKeyFrameSupport) {        var upgrade = document.createElement('p');        upgrade.setAttribute('id', 'enlargeYourCssSupport');        upgrade.appendChild(document.createTextNode('Enlarge your CSS support, upgrade your browser!'));        slideContainer.appendChild(upgrade);    }}` +
- +
+https://developer.mozilla.org/en/CSS/CSS_animations/Detecting_CSS_animation_support[Mozilla Developer Network article]. +
+
+
+[source,javascript]
+----
+var hasKeyFrameSupport = false;
+var vendorPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+var slideContainer = document.getElementById('myElementId');
+if (!slideContainer.style.animationName) {
+	
+    for (var i = 0; !hasKeyFrameSupport && i < vendorPrefixes.length; i++) {
+    	hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    		}
+
+	if (!hasKeyFrameSupport) {
+    	var upgrade = document.createElement('p');
+        upgrade.setAttribute('id', 'upgrade');        				
+        upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
+        slideContainer.appendChild(upgrade);    
+    }
+}
+----
+
+
 Once again, this is not rocket science. The following script first
 checks the standard animationName property existence. Then, the script
 iterates over several vendor-prefixed animation name property just to
-check if one is supported. +
- +
+check if one is supported.
+
 If none of the previous tests succeed, a warning good-tasting message
 notifies the user that his computer might be stuck in a spatiotemporal
 distortion causing some deprecated pieces of software to live longer
 than they should. +
- +
+
 
 lorem ipsum 2.0
 ^^^^^^^^^^^^^^^
 
-Not much to say except that you should check http://slipsum.com/[Samuel
-L. Ipsum] out. +
- +
+Not much to say except that you should check http://slipsum.com/[SamuelL. Ipsum] out.
 
 esporx labs?!
 ^^^^^^^^^^^^^
@@ -109,10 +128,9 @@ gonna be for sure a full post about it. In short: the new ESPN for
 esports events, hosted by Google App Engine, powered by Spring MVC and
 JPA and awesomely rendered by truly awesome webdesigners (and this
 obviously does not include myself) and HTML5 :) +
- +
+
 
 tl;dr?
 ^^^^^^
 
-Check the full example
-https://github.com/fbiville/html5fun/tree/master/slideshow[here]! +
+Check the full example https://github.com/fbiville/html5fun/tree/master/slideshow[here]!
