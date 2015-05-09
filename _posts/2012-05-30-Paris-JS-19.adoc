@@ -1,4 +1,5 @@
 # Paris JS #19
+
 Shame on me: Je n'ai pas bloggé depuis des lustres alors même que
 j'avais un compte rendu presque fini de la superbe conférence de José
 Paumard à Devoxx France, mais je m'éloigne du sujet.
@@ -16,9 +17,8 @@ Nous eûmes d'abord le plaisir d'assister à une démo autour de
 l'utilisation du canvas, présentée par David Catuhe, développeur employé
 par Microsoft. Cela m'a rappelé d'ailleurs un tweet, qui énonçait :
 
-_*image:/blog/public/.ms_tweet_m.jpg[MS
-Tweet,title="MS Tweet, May 2012"] +
-*_
+image:ms_tweet.jpg[] 
+
 
 Ce fut un peu le même état d'esprit. Très bon speaker, David s'est
 montré passionné et aussi très objectif vis-à-vis des insuffisances
@@ -35,9 +35,7 @@ sait, les optimisations efficaces n'émergent que très rarement de la
 direction du vent repéré par votre doigt liquéfié par vos soins.
 
 Notez qu'il s'était déjà exprimé à propos de l'utilisation des canvas
-sur son
-:%20http://blogs.msdn.com/b/eternalcoding/archive/2012/03/23/lib-233-rez-la-puissance-du-canvas-de-html5-pour-vos-jeux-partie-1.aspx[blog],
-je vous invite à le lire expressément.
+sur son blog: http://blogs.msdn.com/b/eternalcoding/archive/2012/03/23/lib-233-rez-la-puissance-du-canvas-de-html5-pour-vos-jeux-partie-1.aspx[blog], je vous invite à le lire expressément.
 
 Un nouveau framework JS orienté développement mobile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,7 +50,8 @@ aux difficultés successives rencontrées par le speaker. +
 Bien qu'un peu décousue, la démo a finalement fonctionné et nous avons
 pu voir un client graphique Twitter développé avec YellowJS. N'hésitez
 pas à vous renseigner par vous-mêmes sur le sujet (et encore désolé pour
-cette section laconique). +
+cette section laconique).
+
 
 Ember Data
 ~~~~~~~~~~
@@ -89,11 +88,12 @@ persistance sont encore manquantes. N'hésitez pas à
 https://github.com/emberjs/data/pulls[contribuer] au projet si le coeur
 vous en dit !
 
+
 Générez vos sites web avec DocPad et Node.js
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A alors pris la parole Khalid Jebbari, pour nous présenter un outil de
-génération de site static: https://github.com/bevry/docpad[Docpad].
+génération de site statique: https://github.com/bevry/docpad[Docpad].
 Notez que la démo consistait en la présentation elle-même, basée sur
 DocPad en intégrant http://bartaz.github.com/impress.js[impress.js]. +
 
@@ -107,7 +107,7 @@ avec l'arsenal du néophyte qui n'a pas forcément envie de s'enquiquiner
 son thème favori.
 
 En réaction à ce triste constat, une sorte de retour aux sources (ahah!)
-s'est observé : la création de sites complètement statics.
+s'est observé : la création de sites complètement statiques.
 http://help.github.com/pages/[Github] et Jekyll y sont d'ailleurs sans
 doute pour quelque chose. +
 
@@ -130,7 +130,6 @@ n'y a bien sûr aucune obligation à utiliser cette fonctionnalité et l'on
 peut se contenter d'un fonctionnement à la Jekyll, mais j'ai peur que
 cette polyvalence devienne vite lourde à porter.
 
- +
 
 Lightning talks
 ~~~~~~~~~~~~~~~
@@ -173,5 +172,4 @@ Réservez votre vendredi 30 Novembre ! Contre un modeste prix d'entrée,
 Thomas Bassetto et Sylvain Zimmer se démènent pour ramener à Paris la
 crème mondiale des développeurs JS.
 
-Alors, n'hésitez plus, cliquez ici et see you in
-http://www.dotjs.fr/[DotJS]!
+Alors, n'hésitez plus, cliquez ici et see you in http://www.dotjs.fr/[DotJS]!
