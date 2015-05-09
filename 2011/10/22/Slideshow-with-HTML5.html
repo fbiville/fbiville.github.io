@@ -23,7 +23,7 @@
     <meta property="og:description" content="When you hear slideshow, you probably think of Javascript, maybe via your favorite framework or not. Well, those days are over. HTML5 is more and more present, and yes, you should begin learning it. Today, we are gonna focus on..." />
     <meta property="og:url" content="https://fbiville.github.io/2011/10/22/Slideshow-with-HTML5.html" />
     <meta property="article:published_time" content="2011-10-21T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-09T13:11:14.986Z" />
+    <meta property="article:modified_time" content="2015-05-09T13:13:26.050Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Slideshow with HTML5" />
@@ -45,7 +45,7 @@
     "headline": "Slideshow with HTML5",
     "url": "https://fbiville.github.io/2011/10/22/Slideshow-with-HTML5.html",
     "datePublished": "2011-10-21T22:00:00.000Z",
-    "dateModified": "2015-05-09T13:11:14.986Z",
+    "dateModified": "2015-05-09T13:13:26.050Z",
     "description": "When you hear slideshow, you probably think of Javascript, maybe via your favorite framework or not. Well, those days are over. HTML5 is more and more present, and yes, you should begin learning it. Today, we are gonna focus on..."
 }
     </script>
@@ -194,13 +194,13 @@ var slideContainer = document.getElementById('myElementId');
 if (!slideContainer.style.animationName) {
 
     for (var i = 0; !hasKeyFrameSupport &amp;&amp; i &lt; vendorPrefixes.length; i++) {
-    	hasKeyFrameSupport = (slideContainer.style[ vendorPrefixes[i] + 'AnimationName' ] !== undefined);    		}
+		hasKeyFrameSupport = (slideContainer.style[vendorPrefixes[i]+'AnimationName'] !== undefined);    			}
 
 	if (!hasKeyFrameSupport) {
-    	var upgrade = document.createElement('p');
-        upgrade.setAttribute('id', 'upgrade');
-        upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
-        slideContainer.appendChild(upgrade);
+		var upgrade = document.createElement('p');
+		upgrade.setAttribute('id', 'upgrade');
+		upgrade.appendChild(document.createTextNode('For better CSS, upgrade your browser!'));
+		slideContainer.appendChild(upgrade);
     }
 }</code></pre>
 </div>
