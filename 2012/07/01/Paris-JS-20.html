@@ -20,14 +20,14 @@
     <meta property="og:site_name" content="(10 piece) Puzzler" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Paris JS #20" />
-    <meta property="og:description" content="Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en quoi elle..." />
+    <meta property="og:description" content="Lateral Thoughts ? Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en..." />
     <meta property="og:url" content="https://fbiville.github.io/2012/07/01/Paris-JS-20.html" />
     <meta property="article:published_time" content="2012-06-30T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-04T12:47:20.182Z" />
+    <meta property="article:modified_time" content="2015-05-09T12:39:24.538Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Paris JS #20" />
-    <meta name="twitter:description" content="Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en quoi elle..." />
+    <meta name="twitter:description" content="Lateral Thoughts ? Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en..." />
     <meta name="twitter:url" content="https://fbiville.github.io/2012/07/01/Paris-JS-20.html" />
     
     <script type="application/ld+json">
@@ -45,8 +45,8 @@
     "headline": "Paris JS #20",
     "url": "https://fbiville.github.io/2012/07/01/Paris-JS-20.html",
     "datePublished": "2012-06-30T22:00:00.000Z",
-    "dateModified": "2015-05-04T12:47:20.182Z",
-    "description": "Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en quoi elle..."
+    "dateModified": "2015-05-09T12:39:24.538Z",
+    "description": "Lateral Thoughts ? Mais qui sommes-nous ? Qui dit session sponsorisée, dit compte rendu sponsorisé ;) Plus sérieusement, suite aux quelques questions posées après ma courte présentation, je profite de ce billet pour présenter ce qu&amp;#8217;est la société et clarifier en..."
 }
     </script>
 
@@ -78,7 +78,9 @@
         </header>
 
         <section class="post-content">
-            <div class="sect3">
+            <div class="sect2">
+<h3 id="_lateral_thoughts">Lateral Thoughts ?</h3>
+<div class="sect3">
 <h4 id="_mais_qui_sommes_nous">Mais qui sommes-nous ?</h4>
 <div class="paragraph">
 <p>Qui dit session sponsorisée, dit compte rendu sponsorisé ;)<br>
@@ -113,6 +115,7 @@ pouvez les visualiser ici :
 <a href="http://lateralthoughts.github.com/parisjs/prez.html" class="bare">http://lateralthoughts.github.com/parisjs/prez.html</a>. Pour les curieux,
 ils ont été réalisés avec <a href="https://github.com/bmcmurray/hekyll">Hekyll</a>,
 une spécialisation de <a href="https://github.com/mojombo/jekyll/">Jekyll</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -162,20 +165,18 @@ avec un fond de slides ma foi assez&#8230;&#8203; nature :)</p>
 possibilité de regrouper des fonctionnalités implémentées en Javascript
 non plus seulement par simples fichiers, mais par module, avec
 déclaration de ses dépendances
-(<a href="http://en.wikipedia.org/wiki/Inversion_of_control">ça ne vous rappelle
-rien ?</a>). Un module peut donc se définir comme suit :</p>
+(<a href="http://en.wikipedia.org/wiki/Inversion_of_control">ça ne vous rappelle rien ?</a>). Un module peut donc se définir comme suit :</p>
 </div>
-<div class="paragraph">
-<p>``</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">define("NomModule", ["package2/moduleA", "./moduleB"], +
+    function(depA, depB) \{ +
+        //... +
+        return function() \{ +
+        //... +
+    } +
+});</code></pre>
 </div>
-<div class="paragraph">
-<p>define("NomModule", ["package2/moduleA", "./moduleB"],<br>
-    function(depA, depB) \{<br>
-        //&#8230;&#8203;<br>
-        return function() \{<br>
-        //&#8230;&#8203;<br>
-    }<br>
-});</p>
 </div>
 <div class="paragraph">
 <p>De plus, le chargement asynchrone déporte le chargement des scripts une
@@ -192,48 +193,36 @@ une multitude de modules) le rendu.</p>
 <div class="sect3">
 <h4 id="_sencha_touch_2_en_action">Sencha Touch 2 en action</h4>
 <div class="paragraph">
-<p><a href="http://fr.linkedin.com/pub/julien-bouquillon/19/b78/438">Julien
-Bouquillon</a> est venu ensuite coder en live une appli Twitteresque de
-démo, basée - vous l&#8217;aurez compris - sur
-<a href="http://www.sencha.com/products/touch/">Sencha Touch</a>. On sentait que
-Julien était bien rôdé et n&#8217;a connu aucun couac durant ces quelques
-minutes de codage intensif. Le code qui en ressort est somme toute
-propre, maintenable et lisible. S&#8217;il y a une toute petite critique à
-émettre malgré tout, c&#8217;est l&#8217;absence d&#8217;appareils mobiles pour la
-démonstration. Personnellement, la démonstration d&#8217;un énième framework
-MVC (dans quelque langage qu&#8217;il soit) ne me fait pas spécialement rêver
-et la force de Sencha Touch réside surtout, si j&#8217;ai bien compris, dans
-la variété des appareils qu&#8217;elle vise. C&#8217;est peut-être cet aspect qu&#8217;il
-aurait fallu mettre un peu en avant.<br></p>
+<p><a href="http://fr.linkedin.com/pub/julien-bouquillon/19/b78/438">Julien Bouquillon</a> est venu ensuite coder en live une appli Twitteresque de démo, basée - vous l&#8217;aurez compris - sur <a href="http://www.sencha.com/products/touch/">Sencha Touch</a>.</p>
 </div>
 <div class="paragraph">
-<p>Néanmoins, la critique est aisée, l&#8217;art est difficile, la session de
-live coding a été très bien ficelée, merci à Julien de s'être jeté à
-l&#8217;eau !</p>
+<p>On sentait que Julien était bien rôdé et n&#8217;a connu aucun couac durant ces quelques minutes de codage intensif. Le code qui en ressort est somme toute propre, maintenable et lisible. S&#8217;il y a une toute petite critique à émettre malgré tout, c&#8217;est l&#8217;absence d&#8217;appareils mobiles pour la démonstration. Personnellement, la démonstration d&#8217;un énième framework MVC (dans quelque langage qu&#8217;il soit) ne me fait pas spécialement rêver
+et la force de Sencha Touch réside surtout, si j&#8217;ai bien compris, dans la variété des appareils qu&#8217;elle vise.</p>
+</div>
+<div class="paragraph">
+<p>C&#8217;est peut-être cet aspect qu&#8217;il aurait fallu mettre un peu en avant.</p>
+</div>
+<div class="paragraph">
+<p>Néanmoins, la critique est aisée, l&#8217;art est difficile, la session de live coding a été très bien ficelée, merci à Julien de s'être jeté à l&#8217;eau !</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_docco_viewer">docco viewer</h4>
 <div class="paragraph">
-<p>Non, docco viewer n&#8217;est pas un appareil à rayon X permettant de savoir
-si oui ou non votre kiki pourrait s&#8217;apparenter à celui de l&#8217;acteur
-italien bien connu. Docco viewer, présentée et ré-implémenté par le
-show-man <a href="http://jetienne.com/">Jérôme Étienne</a>, est un outil de
-génération de documentation (au même titre que
-<a href="http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html">Javadoc</a>).
-Popularisé par backbone.js, Docco permet de visualiser côte-à-côte code
-source et documentation formatée.</p>
+<p>Docco viewer, présentée et ré-implémenté par le show-man <a href="http://jetienne.com/">Jérôme Étienne</a>, est un outil de génération de documentation (au même titre que <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html">Javadoc</a>).</p>
 </div>
 <div class="paragraph">
-<p>Vous pourrez retrouver les slides de la présentation ici :
-<a href="http://jeromeetienne.github.com/slides/doccoviewer.parisjs20" class="bare">http://jeromeetienne.github.com/slides/doccoviewer.parisjs20</a>.</p>
+<p>Popularisé par backbone.js, Docco permet de visualiser côte-à-côte code source et documentation formatée.</p>
+</div>
+<div class="paragraph">
+<p>Vous pourrez retrouver les slides de la présentation <a href="http://jeromeetienne.github.com/slides/doccoviewer.parisjs20">ici</a>.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_envi_vim_and_dwm_having_a_baby_at_a_party_organized_by_mosaic">envi: vim and dwm having a baby at a party organized by mosaic</h4>
 <div class="paragraph">
 <p>Voici enfin mon coup de coeur de la soirée. Si le titre vous évoque
-aussi peu de chose que du plutonien (qui n&#8217;ont d&#8217;ailleurs pas enlevé
+aussi peu de choses que du plutonien (qui n&#8217;ont d&#8217;ailleurs pas enlevé
 Wayne), pas de panique ! Je vais essayer de vous expliquer l&#8217;idée.</p>
 </div>
 <div class="paragraph">
@@ -272,9 +261,7 @@ faire avancer le projet (partage read-only de l'écran&#8230;&#8203;).</p>
 Sachez que Paris JS recherche régulièrement des speakers, des sponsors
 mais aussi des âmes charitables prêtes à aider dans la mise à jour du
 site et du programme, à l&#8217;organisation des salles le jour J. N&#8217;hésitez
-plus et
-<a href="https://groups.google.com/forum/?fromgroups#%21forum/parisjs">contactez
-les</a> !</p>
+plus et <a href="https://groups.google.com/forum/?fromgroups#%21forum/parisjs">contactez-les</a> !</p>
 </div>
 </div>
         </section>
