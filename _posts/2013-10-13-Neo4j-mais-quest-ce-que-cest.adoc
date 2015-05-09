@@ -1,4 +1,4 @@
-# Neo4j : mais qu'est-ceque c'est ?
+# Neo4j : mais qu'est-ce que c'est ?
 
 Les graphes sont partout et il y a une bonne raison à cela : il s'agit
 de l'une des structures de données les plus génériques qui existent dans
