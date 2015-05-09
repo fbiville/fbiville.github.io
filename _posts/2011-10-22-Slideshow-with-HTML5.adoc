@@ -20,7 +20,7 @@ http://www.css3.info/preview/[CSS rules].
 
 [source,css]
 ----
-@keyframes AnimationName{    
+@keyframes AnimationName {
 	0%,15%,100% {left: 0px;}    
     35%,50% {left: -640px;}    
     70%,85% {left: -1280px;}
