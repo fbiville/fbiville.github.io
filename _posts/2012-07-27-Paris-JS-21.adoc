@@ -117,12 +117,3 @@ Si vous souhaitez faire avancer le web avec votre (début d')application,
 n'hésitez plus et contactez Thomas qui coordonne les candidatures
 françaises.
 
-
-Vues hiérarchiques avec cell.js
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Processing.js : portage de l'API Processing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Conclusion
-~~~~~~~~~~
