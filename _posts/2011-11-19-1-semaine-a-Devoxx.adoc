@@ -13,7 +13,7 @@ néanmoins pas tout seul : cette année, Devoxx a accueilli 3350 personnes
 plus de chiffres, je vous conseille de jeter un oeil à cet
 http://www.touilleur-express.fr/2011/11/15/devoxx-2011-who-are-those-angels/[article]
 de Nicolas Martignole. +
- +
+
 
 Impressions générales
 ~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +37,6 @@ Monsieur Bloch est co-auteur, et je n'avais pas emmené Effective Java).
 possible de gagner de nombreux goodies aux stands des différents
 partenaires (merci Oracle pour le Kindle au passage).
 
- +
 
 Devoxx France
 ~~~~~~~~~~~~~
