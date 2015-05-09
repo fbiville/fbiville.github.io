@@ -23,7 +23,7 @@
     <meta property="og:description" content="3615-ma-vie Tout ce qui va suivre n’est qu’un tissu de mauvaises excuses, me direz-vous, mais j’ai tout de même quelques circonstances atténuantes quant à l’inactivité de mon blog (et mon absence de la scène parisienne : je..." />
     <meta property="og:url" content="https://fbiville.github.io/2014/06/09/Neo4j-sous-le-capot.html" />
     <meta property="article:published_time" content="2014-06-08T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-09T11:47:57.306Z" />
+    <meta property="article:modified_time" content="2015-05-09T11:51:50.301Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Neo4j sous le capot" />
@@ -45,7 +45,7 @@
     "headline": "Neo4j sous le capot",
     "url": "https://fbiville.github.io/2014/06/09/Neo4j-sous-le-capot.html",
     "datePublished": "2014-06-08T22:00:00.000Z",
-    "dateModified": "2015-05-09T11:47:57.306Z",
+    "dateModified": "2015-05-09T11:51:50.301Z",
     "description": "3615-ma-vie Tout ce qui va suivre n’est qu’un tissu de mauvaises excuses, me direz-vous, mais j’ai tout de même quelques circonstances atténuantes quant à l’inactivité de mon blog (et mon absence de la scène parisienne : je..."
 }
     </script>
@@ -436,38 +436,28 @@ graphe.</p>
 avec les <a href="https://github.com/neo4j/neo4j">projets open source</a> dans les
 langages qu’on connaît bien) :</p>
 </div>
-<div class="paragraph">
-<p>``</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public class RelationshipRecord extends PrimitiveRecord
+
+{
+
+    private long firstNode;
+
+    private long secondNode;
+
+    private int type;
+
+    private long firstPrevRel = 1;
+
+    private long firstNextRel = Record.NO_NEXT_RELATIONSHIP.intValue();
+
+    private long secondPrevRel = 1;
+
+    private long secondNextRel = Record.NO_NEXT_RELATIONSHIP.intValue();
+
+    // [...]</code></pre>
 </div>
-<div class="paragraph">
-<p>public class RelationshipRecord extends PrimitiveRecord</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>    private long firstNode;</p>
-</div>
-<div class="paragraph">
-<p>    private long secondNode;</p>
-</div>
-<div class="paragraph">
-<p>    private int type;</p>
-</div>
-<div class="paragraph">
-<p>    private long firstPrevRel = 1;</p>
-</div>
-<div class="paragraph">
-<p>    private long firstNextRel = Record.NO_NEXT_RELATIONSHIP.intValue();</p>
-</div>
-<div class="paragraph">
-<p>    private long secondPrevRel = 1;</p>
-</div>
-<div class="paragraph">
-<p>    private long secondNextRel = Record.NO_NEXT_RELATIONSHIP.intValue();</p>
-</div>
-<div class="paragraph">
-<p>    // [&#8230;&#8203;]</p>
 </div>
 <div class="paragraph">
 <p>Passons sur le formatage digne des codeurs C les plus chevronnés (qui
@@ -505,8 +495,10 @@ d’arrivée</p>
 <div class="paragraph">
 <p>Une illustration vaut mieux qu’un long discours :</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="/blog/public/.graph_on_disk_bis_m.png" alt="graph_on_disk_bis.png" title="graph_on_disk_bis.png, Jun 2014"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="/images/graph_on_disk_bis.png" alt="graph on disk bis.png">
+</div>
 </div>
 <div class="paragraph">
 <p>Il s’agit exactement de ce que j’ai tenté d’expliquer : les flèches
@@ -801,9 +793,11 @@ champ d’application et s’applique sous certaines conditions. J’espère
 que cet article vous aura permis de comprendre les faiblesses mais
 surtout les forces des bases de données graphe et, qui sait, vous
 donnera envie d’approfondir le sujet.
+
 Je ne prétends pas à l’exhaustivité, donc si vous souhaitez que je
 détaille d’autres parties (exemple : Cypher), je peux éventuellement y
 consacrer d’autres articles.
+
 `<shameless_plug>`Si cet article vous a plu, je peux aussi venir en
 parler dans un User Group de votre ville et je donne des
 http://www.lateral-thoughts.com/formation-neo4j[formations customisables
