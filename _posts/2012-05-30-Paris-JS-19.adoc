@@ -166,7 +166,7 @@ J'espère que ce compte rendu, bien que certifié à la rache, vous aura
 tout de même donné envie de vous déplacer pour la prochaine édition !
 
 One more thing!
--------------------
+---------------
 
 
 Réservez votre vendredi 30 Novembre ! Contre un modeste prix d'entrée, Thomas Bassetto et Sylvain Zimmer se démènent pour ramener à Paris la crème mondiale des développeurs JS.
