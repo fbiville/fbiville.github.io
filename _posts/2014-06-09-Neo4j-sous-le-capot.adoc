@@ -451,6 +451,7 @@ APIs de traversées, Cypher et les APIs REST !
 
 image::neo4j_archi.png[]
 
+
 Gestion de la concurrence
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -479,6 +480,8 @@ le domaine métier auquel appartient mon application appartient comporte
 des notions qui se répartissent naturellement. Eh oui ! Le _sharding_
 est une solution technique, certes, mais hautement dépendante du métier
 (comme toute solution technique devrait l’être, mais je digresse).
+
+
 Graphe statique
 +++++++++++++++
 
