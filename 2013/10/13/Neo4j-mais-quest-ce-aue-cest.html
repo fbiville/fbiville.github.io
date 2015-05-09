@@ -23,7 +23,7 @@
     <meta property="og:description" content="Les graphes sont partout et il y a une bonne raison à cela : il s&amp;#8217;agit de l&amp;#8217;une des structures de données les plus génériques qui existent dans notre panoplie de développeur. Tellement générique qu&amp;#8217;elle..." />
     <meta property="og:url" content="https://fbiville.github.io/2013/10/13/Neo4j-mais-quest-ce-aue-cest.html" />
     <meta property="article:published_time" content="2013-10-12T22:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-05-09T12:15:32.161Z" />
+    <meta property="article:modified_time" content="2015-05-09T12:22:00.764Z" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Neo4j : mais qu&#x27;est-ce aue c&#x27;est ?" />
@@ -45,7 +45,7 @@
     "headline": "Neo4j : mais qu&#x27;est-ce aue c&#x27;est ?",
     "url": "https://fbiville.github.io/2013/10/13/Neo4j-mais-quest-ce-aue-cest.html",
     "datePublished": "2013-10-12T22:00:00.000Z",
-    "dateModified": "2015-05-09T12:15:32.161Z",
+    "dateModified": "2015-05-09T12:22:00.764Z",
     "description": "Les graphes sont partout et il y a une bonne raison à cela : il s&amp;#8217;agit de l&amp;#8217;une des structures de données les plus génériques qui existent dans notre panoplie de développeur. Tellement générique qu&amp;#8217;elle..."
 }
     </script>
@@ -505,12 +505,11 @@ référence à ces jolis patterns dans les clauses suivantes de ma requête
 <div class="paragraph">
 <p>Prenons un exemple de requête complète :</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> MATCH (**flo**:HUMAN:MALE)-[**luv**:LOVES]-(**didi**:HUMAN:FEMALE) +
- WHERE **flo**.firstName = 'Florent' AND **didi**.firstName = '...' //
-;-) +
- RETURN **flo**, **didi**, **luv**.since</pre>
+<pre class="highlight"><code class="language-cypher" data-lang="cypher"> MATCH (flo:HUMAN:MALE)-[luv:LOVES]-(didi:HUMAN:FEMALE
+ WHERE flo.firstName = 'Florent' AND didi.firstName = '...' // ;-)
+ RETURN flo, didi, luv.since</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -537,17 +536,11 @@ afin de définir et affiner le résultat. (Ah oui, et la requête répond à
 <p>indexation</p>
 </li>
 <li>
-<p>les alternatives à Cypher : le
-<a href="http://docs.neo4j.org/chunked/milestone/tutorial-traversal-java-api.html">framework
-de traversée</a>, le langage
-<a href="https://github.com/neo4j-contrib/gremlin-plugin">Gremlin</a> devéloppé par
+<p>les alternatives à Cypher : le <a href="http://docs.neo4j.org/chunked/milestone/tutorial-traversal-java-api.html">framework de traversée</a>, le langage <a href="https://github.com/neo4j-contrib/gremlin-plugin">Gremlin</a> devéloppé par
 Tinkerpop</p>
 <div class="literalblock">
 <div class="content">
-<pre> &lt;shamelessPlug&gt; Les
-http://www.lateral-thoughts.com/formations[formations] ou
-http://www.brownbaglunch.fr/baggers.html#Florent_Biville[BBL] sont
-l'occasion d'en parler &lt;/shamelessPlug&gt; .</pre>
+<pre>&lt;shamelessPlug&gt; Les http://www.lateral-thoughts.com/formations[formations] ou http://www.brownbaglunch.fr/baggers.html#Florent_Biville[BBL] sont l'occasion d'en parler &lt;/shamelessPlug&gt; .</pre>
 </div>
 </div>
 </li>
@@ -605,13 +598,11 @@ paramétrées</a>.</p>
 <div class="paragraph">
 <p>Vous arrivez donc à la requête suivante :</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> MATCH
-(suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT) +
- WHERE me.name = \{name} // \{name} est un paramètre nommé, passé à
-l'exécution +
- RETURN me, suggestions</pre>
+<pre class="highlight"><code class="language-cypher" data-lang="cypher"> MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT)
+ WHERE me.name = {name} // {name} est un paramètre nommé, passé à l'exécution
+ RETURN me, suggestions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -640,12 +631,11 @@ l&#8217;utilisation de
 <a href="http://docs.neo4j.org/chunked/milestone/query-aggregation.html#aggregation-distinct">DISTINCT</a>)
 ou encore :</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> MATCH
-(suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT) +
- WHERE me.name = \{name} *AND me &lt;&gt; suggestions* +
- RETURN me, suggestions</pre>
+<pre class="highlight"><code class="language-cypher" data-lang="cypher"> MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)-[:IN_CONTACT_WITH]-(me:CONTACT)
+ WHERE me.name = \{name} AND me &lt;&gt; suggestions +
+ RETURN me, suggestions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -656,13 +646,12 @@ l&#8217;autre comme exercice ;-)</p>
 </div>
 <div class="paragraph">
 <p>Avant de vous montrer cette reformulation, voici la syntaxe complète
-d&#8217;une relation comme l&#8217;indique la
-<a href="http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships">documentation</a>
+d&#8217;une relation comme l&#8217;indique la <a href="http://docs.neo4j.org/chunked/milestone/query-match.html#match-variable-length-relationships">documentation</a>
 de Cypher:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>[variableName:RELATION_TYPE*minHops..maxHops]</pre>
+<pre> [variableName:RELATION_TYPE*minHops..maxHops]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -679,11 +668,11 @@ peut donc être réécrite comme suit (avec une légère feinte : minHops est
 égal à maxHops) :</pre>
 </div>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH***2..2**]-(me:CONTACT) +
-WHERE me.name = \{name} AND me &lt;&gt; suggestions +
-RETURN me, suggestions</pre>
+<pre class="highlight"><code class="language-cypher" data-lang="cypher"> MATCH (suggestions:CONTACT)-[:IN_CONTACT_WITH***2..2**]-(me:CONTACT) +
+ WHERE me.name = \{name} AND me &lt;&gt; suggestions +
+ RETURN me, suggestions</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -732,12 +721,10 @@ contact avec) quelqu&#8217;un avec qui j&#8217;ai déjà travaillé".</p>
 et prénom</p>
 </li>
 <li>
-<p>le fait d'être en contact est matérialisé par
-(:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)</p>
+<p>le fait d'être en contact est matérialisé par <code>(:CONTACT)-[:IN_CONTACT_WITH]-(:CONTACT)</code></p>
 </li>
 <li>
-<p>le fait de travailler pour une entreprise s'écrit :
-(:CONTACT)-[:WORKED_IN]&#8594;(:COMPANY)</p>
+<p>le fait de travailler pour une entreprise s'écrit : <code>(:CONTACT)-[:WORKED_IN]&#8594;(:COMPANY)</code></p>
 </li>
 </ul>
 </div>
@@ -763,13 +750,10 @@ loin d'être insurmontables :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>il suffit d&#8217;ouvrir <a href="http://console.neo4j.org" class="bare">http://console.neo4j.org</a> dans votre navigateur
-favori</p>
+<p>il suffit d&#8217;ouvrir <a href="http://console.neo4j.org" class="bare">http://console.neo4j.org</a> dans votre navigateur favori</p>
 </li>
 <li>
-<p>et écrire quelques requêtes
-<a href="http://docs.neo4j.org/chunked/2.0.0-M05/cypher-query-lang.html">Cypher</a>
-pour vous faire la main</p>
+<p>et écrire quelques requêtes <a href="http://docs.neo4j.org/chunked/2.0.0-M05/cypher-query-lang.html">Cypher</a> pour vous faire la main</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -818,8 +802,8 @@ projet Java avec Neo.</p>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>If you can write, you can code.<br>
- If you can sketch, you can use a graph database.</p>
+<p>If you can write, you can code.
+If you can sketch, you can use a graph database.</p>
 </div>
 </blockquote>
 </div>
@@ -830,14 +814,10 @@ projet Java avec Neo.</p>
 <p>Rencontres : <a href="http://www.meetup.com/graphdb-france/">Graph DB Paris</a></p>
 </div>
 <div class="paragraph">
-<p>Entraide : <a href="https://groups.google.com/forum/#!forum/neo4jfr">Google Groups
-Neo4J FR</a></p>
+<p>Entraide : <a href="https://groups.google.com/forum/#!forum/neo4jfr">Google Groups Neo4J FR</a></p>
 </div>
 <div class="paragraph">
-<p>Conseil / formation : <a href="http://www.lateral-thoughts.com/">Lateral
-Thoughts</a>,
-<a href="http://www.brownbaglunch.fr/baggers.html#Florent_Biville">Brown Bag
-Lunch</a></p>
+<p>Conseil / formation : <a href="http://www.lateral-thoughts.com/">Lateral Thoughts</a>, <a href="http://www.brownbaglunch.fr/baggers.html#Florent_Biville">Brown Bag Lunch</a></p>
 </div>
 <div class="paragraph">
 <p>Un grand merci à Mathilde, Hugo, Pierre-Yves pour leur relecture !</p>
