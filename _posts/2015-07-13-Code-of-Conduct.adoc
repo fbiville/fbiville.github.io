@@ -1,0 +1,11 @@
+# Code of Conduct
+
+Le code de conduite, a.k.a. Code of Conduct, a pris une place importante dans différentes discussions récemment.
+[Les Cast Codeurs](https://lescastcodeurs.com/2015/07/13/lcc-128-mon-coc-est-plus-gros-que-le-tien/) en ont parlé 
+par exemple et de nombreux incidents aux États-Unis ont malheureusement lieu trop souvent.
+
+Le code de conduite est en place dans de nombreuses conférences ou meetups :
+
+ * [Pycon](https://github.com/python/pycon-code-of-conduct)
+ * [Papers We Love](https://github.com/papers-we-love/papers-we-love/blob/master/CODE_OF_CONDUCT.md)
+ * 
