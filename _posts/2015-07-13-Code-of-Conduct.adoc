@@ -1,8 +1,7 @@
 # Code of Conduct
 
 Le code de conduite, a.k.a. Code of Conduct, a pris une place importante dans différentes discussions récemment.
-[Les Cast Codeurs](https://lescastcodeurs.com/2015/07/13/lcc-128-mon-coc-est-plus-gros-que-le-tien/) en ont parlé 
-par exemple et de nombreux incidents aux États-Unis ont malheureusement lieu trop souvent.
+Côté francophone, [Les Cast Codeurs](https://lescastcodeurs.com/2015/07/13/lcc-128-mon-coc-est-plus-gros-que-le-tien/) en ont notamment parlé.
 
 Le code de conduite est en place dans de nombreuses fondations, conférences et meetups :
 
@@ -10,14 +9,25 @@ Le code de conduite est en place dans de nombreuses fondations, conférences et 
  * [Papers We Love](https://github.com/papers-we-love/papers-we-love/blob/master/CODE_OF_CONDUCT.md) et donc le [chapitre parisien](http://www.meetup.com/Papers-We-Love-Paris/) également ;)
  * [Apache](https://www.apache.org/foundation/policies/conduct.html)
  * [Code for America](https://github.com/codeforamerica/codeofconduct)
+ * ... et bien d'autres
  
  
  ## Motivations
  
- L'une des raisons souvent avancée des sceptiques et détracteurs est que le code de conduite est avant un moyen aux organisateurs/responsables de protéger leurs arrières.
+ L'une des raisons souvent avancée des sceptiques et détracteurs est que le code de conduite est avant tout un moyen aux organisateurs/responsables de protéger leurs arrières.
  C'est effectivement un de ses aspects, mais c'est vraiment regarder le problème du petit bout de la lorgnette.
  
  Dans le fond, la raison d'être d'un code de conduite, quelle que soit sa forme, est de s'assurer que l'événement est le plus inclusif possible.
  Cela peut prendre différentes formes :
+ 
+  * motiver les personnes issues de minorité à proposer un talk (action organisée par les [Duchess France](http://www.duchess-france.org/des-oratrices/) pour les femmes)
+  * financer leur séjour (e.g. [CSSConf](https://2015.cssconf.com/diversity-scholarship/) aux US)
+  * mettre en place des mécanismes clairs sur le signalement de dérives ([anti-harassment policy](https://adainitiative.org/what-we-do/conference-policies/) proposée par [Ada initiative](https://adainitiative.org/)).
+  
+ 
+ Bref, s'assurer que toute personne puisse assister à l'événement sereinement.
+ 
+ 
+ ## Du bon sens, évidemment
  
  
