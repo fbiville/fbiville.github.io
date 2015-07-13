@@ -4,8 +4,13 @@ Le code de conduite, a.k.a. Code of Conduct, a pris une place importante dans di
 [Les Cast Codeurs](https://lescastcodeurs.com/2015/07/13/lcc-128-mon-coc-est-plus-gros-que-le-tien/) en ont parlé 
 par exemple et de nombreux incidents aux États-Unis ont malheureusement lieu trop souvent.
 
-Le code de conduite est en place dans de nombreuses conférences ou meetups :
+Le code de conduite est en place dans de nombreuses fondations, conférences et meetups :
 
  * [Pycon](https://github.com/python/pycon-code-of-conduct)
- * [Papers We Love](https://github.com/papers-we-love/papers-we-love/blob/master/CODE_OF_CONDUCT.md)
- * 
+ * [Papers We Love](https://github.com/papers-we-love/papers-we-love/blob/master/CODE_OF_CONDUCT.md) et donc le [chapitre parisien](http://www.meetup.com/Papers-We-Love-Paris/) également ;)
+ * [Apache](https://www.apache.org/foundation/policies/conduct.html)
+ * [Code for America](https://github.com/codeforamerica/codeofconduct)
+ 
+ ## Motivations
+ 
+ 
