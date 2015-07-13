@@ -11,6 +11,13 @@ Le code de conduite est en place dans de nombreuses fondations, conférences et 
  * [Apache](https://www.apache.org/foundation/policies/conduct.html)
  * [Code for America](https://github.com/codeforamerica/codeofconduct)
  
+ 
  ## Motivations
+ 
+ L'une des raisons souvent avancée des sceptiques et détracteurs est que le code de conduite est avant un moyen aux organisateurs/responsables de protéger leurs arrières.
+ C'est effectivement un de ses aspects, mais c'est vraiment regarder le problème du petit bout de la lorgnette.
+ 
+ Dans le fond, la raison d'être d'un code de conduite, quelle que soit sa forme, est de s'assurer que l'événement est le plus inclusif possible.
+ Cela peut prendre différentes formes :
  
  
