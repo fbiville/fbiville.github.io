@@ -12,32 +12,32 @@ Le code de conduite est en place dans de nombreuses fondations, conférences et 
  * ... et bien d'autres
  
  
- ## Motivations
+## Motivations
  
- L'une des raisons souvent avancée des sceptiques et détracteurs est que le code de conduite est avant tout un moyen aux organisateurs/responsables de protéger leurs arrières.
- C'est effectivement un de ses aspects, mais c'est vraiment regarder le problème du petit bout de la lorgnette.
+L'une des raisons souvent avancée des sceptiques et détracteurs est que le code de conduite est avant tout un moyen aux organisateurs/responsables de protéger leurs arrières.
+C'est effectivement un de ses aspects, mais c'est vraiment regarder le problème du petit bout de la lorgnette.
  
- Dans le fond, la raison d'être d'un code de conduite, quelle que soit sa forme, est de s'assurer que l'événement est le plus inclusif possible.
- Cela peut prendre différentes formes :
+Dans le fond, la raison d'être d'un code de conduite, quelle que soit sa forme, est de s'assurer que l'événement est le plus inclusif possible.
+Cela peut prendre différentes formes :
  
   * motiver les personnes issues de minorité à proposer un talk (action organisée par les [Duchess France](http://www.duchess-france.org/des-oratrices/) pour les femmes)
   * financer leur séjour (e.g. [CSSConf](https://2015.cssconf.com/diversity-scholarship/) aux US)
   * mettre en place des mécanismes clairs sur le signalement de dérives ([anti-harassment policy](https://adainitiative.org/what-we-do/conference-policies/) proposée par [Ada initiative](https://adainitiative.org/)).
   
  
- Bref, s'assurer que toute personne puisse assister à l'événement sereinement.
+Bref, s'assurer que toute personne puisse assister à l'événement sereinement.
  
  
- ## Du bon sens, évidemment
+## Du bon sens, évidemment(?)
  
- Prenons un exemple relativement récent, le Flyer du Breizhcamp.
+Prenons un exemple relativement récent, le Flyer du Breizhcamp.
  
- Le Flyer se voulait potache, les organisateurs voulaient détourner les [flyers sexistes de WinDev](http://blog.clement.delafargue.name/posts/2014-05-01-youve-convinced-me-boss-ill-work-with-windev-and-pc-soft.html).
+Le Flyer se voulait potache, les organisateurs voulaient détourner les [flyers sexistes de WinDev](http://blog.clement.delafargue.name/posts/2014-05-01-youve-convinced-me-boss-ill-work-with-windev-and-pc-soft.html).
  
- En l'occurrence, bien que naïfs initialement, les organisateurs ont bien réagi, présenté leurs excuses et retiré le Flyer.
- Ce qui m'enrage, ce sont les réactions que vous pouvez dans leur intégralité [ici](https://twitter.com/breizhcamp/status/575307989613211648).
+En l'occurrence, bien que naïfs initialement, les organisateurs ont bien réagi, présenté leurs excuses et retiré le Flyer.
+Ce qui m'enrage, ce sont les réactions que vous pouvez lire dans leur intégralité [ici](https://twitter.com/breizhcamp/status/575307989613211648).
  
- Certains sont suffisamment gonflés pour oser faire la morale à des associations ou personnes trans en leur disant qu'elles réagissent excessivement.
- O RLY?
+Bref, le thread lié illustre encore ici les réactions habituelles de l'homme blanc blessé dans son orgueil: [du #NotAllMen en puissance !](http://time.com/79357/not-all-men-a-brief-history-of-every-dudes-favorite-argument/).
  
- 
+La naïveté est pardonnable, l'obstination l'est beaucoup moins.
+
