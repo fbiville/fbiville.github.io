@@ -80,8 +80,16 @@ image::images/michael-sproc-compiler-feedback.png[]
 
 ## neo4j-sproc-compiler in action
 
+While the following screencast features Maven, the annotation processor is actually agnostic of any build tool.
+You can use any build tool you want or directly `javac` if that floats your boat!
+
 ++++
 <script type="text/javascript" src="https://asciinema.org/a/79379.js" id="asciicast-79379" async></script>
 <noscript><a href="https://asciinema.org/a/79379" target="_blank"><img src="https://asciinema.org/a/79379.png" /></a></noscript>
 ++++
+
+## Conclusion
+
+
+
  
