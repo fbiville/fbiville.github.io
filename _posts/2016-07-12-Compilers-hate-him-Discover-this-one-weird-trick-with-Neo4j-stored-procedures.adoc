@@ -18,7 +18,7 @@ Actually, step 3 may repeat itself quite a few times, Neo4j sprocs must comply t
 
 ## Sproc rules
 
-While rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Procedure.java#L31[javadoc], we can summarize the rules as follows:
+The rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Procedure.java#L31[javadoc], but we can summarize them as follows:
 
  - a sproc is a method annotated with `@org.neo4j.procedure.Procedure`
  - it must return a https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html[`java.util.stream.Stream<T>`] where T is a user-defined record type
@@ -29,7 +29,7 @@ While rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/
  - the procedure name must be unique (name = package name+method name)
  - injectable types (`GraphDatabaseService` et al) must target public non-static, non-final, https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Context.java[`@Context`-annotated] fields
  
-Fortunately, folks at https://neo4j.com/company/[Neo Technology] have done a wonderful at error reporting. Neo4j will fail fast if any of the rules is violated and give a detailed error message.
+Fortunately, folks at https://neo4j.com/company/[Neo Technology] have done a wonderful job at error reporting. Neo4j fails fast if any of the rules is violated and gives a detailed error message.
  
 Here is an example with Neo4j 3.0.3 and the following *failing* attempt to deploy the following sproc:
  
@@ -40,7 +40,7 @@ Here is an example with Neo4j 3.0.3 and the following *failing* attempt to deplo
 ----
  
  
-I'll get the following error (see `logs/neo4j.log`):
+The following error will be prompted (see `logs/neo4j.log`):
  
 ----
 Caused by: org.neo4j.kernel.api.exceptions.ProcedureException: Argument at position 0 in method `doSomething` is missing an `@Name` annotation.
@@ -51,11 +51,9 @@ Nice error message! Just add the missing `@Name` on the only parameter, re-compi
 
 ## Can we do better?
 
-The previous example is quite trivial, but this back-and-forth could be repeated any times, especially when one is not much familiar with sprocs
-yet. 
+The previous example is quite trivial, but this back-and-forth could be potentially repeated many times, especially when one is not much familiar with sprocs. 
 
-Fortunately, most of the errors can be caught at compile time.
-Indeed, since 
+Fortunately for us, most of the errors can be caught at compile time.
 
 ## @Eureka("annotation processing FTW!")
 
