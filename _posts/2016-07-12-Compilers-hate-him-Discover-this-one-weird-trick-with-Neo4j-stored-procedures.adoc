@@ -27,6 +27,7 @@ While rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/
  - if the sproc accepts parameters, they all must be annotated with https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Name.java[`@org.neo4j.procedure.Name`]
  - parameters can only be of specific types
  - the procedure name must be unique (name = package name+method name)
+ - injectable types (`GraphDatabaseService` et al) must target public non-static, non-final, https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Context.java[`@Context`-annotated] fields
  
 Fortunately, folks at https://neo4j.com/company/[Neo Technology] have done a wonderful at error reporting. Neo4j will fail fast if any of the rules is violated and give a detailed error message.
  
@@ -50,7 +51,10 @@ Nice error message! Just add the missing `@Name` on the only parameter, re-compi
 
 ## Can we do better?
 
+The previous example is quite trivial, but this back-and-forth could be repeated any times, especially when one is not much familiar with sprocs
+yet.
 
+Fortunately, most of the errors can be caught at compile time
  
  
  
