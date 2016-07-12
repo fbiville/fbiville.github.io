@@ -90,6 +90,6 @@ You can use any build tool you want or directly `javac` if that floats your boat
 
 ## Conclusion
 
-
-
+Be cautious, most but *not* all checks can be performed at compile time. You'll still need to write some tests and monitor your deploys!
+Hopefully, this little utility that I wrote will shorten your development feedback loop and get your stored procedures harder, better, stronger and faster.
  
