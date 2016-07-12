@@ -36,7 +36,9 @@ Here is an example with Neo4j 3.0.3 and the following *failing* attempt to deplo
 [source,java]
 ----
 @Procedure
-public Stream<MyRecord> doSomething(Map<String, Integer> value) { /* ... */ }
+public Stream<MyRecord> doSomething(Map<String, Integer> value) {
+    // [...]
+}
 ----
  
  
