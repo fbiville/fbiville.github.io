@@ -12,7 +12,7 @@ The process is quite simple:
 
  1. You write some code, annotate it
  2. test it with the test harness
- 3. deploy it to your Neo4j instance and that's it!
+ 3. package the JAR and deploy it to your Neo4j instance (`plugins/`)!
  
 Actually, step 3 may repeat itself quite a few times, Neo4j sprocs must comply to a few rules before your Neo4j server accepts to deploy it.
 
@@ -22,4 +22,35 @@ While rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/
 
  - a sproc is a method annotated with `@org.neo4j.procedure.Procedure`
  - it must return a https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html[`java.util.stream.Stream<T>`] where T is a user-defined record type
- - if the sproc accepts parameters, they all must be annotated with `@Name`
+ - the record type must define public fields
+ - these can only be of restricted types
+ - if the sproc accepts parameters, they all must be annotated with https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Name.java[`@org.neo4j.procedure.Name`]
+ - parameters can only be of specific types
+ - the procedure name must be unique (name = package name+method name)
+ 
+Fortunately, folks at https://neo4j.com/company/[Neo Technology] have done a wonderful at error reporting. Neo4j will fail fast if any of the rules is violated and give a detailed error message.
+ 
+Here is an example with Neo4j 3.0.3 and the following failing attempt to deploy the following sproc:
+ 
+[source,java]
+----
+    @Procedure
+    public Stream<MyRecord> doSomething(Map<String, Integer> value) { /* ... */ }
+----
+ 
+ 
+I'll get the following error (see `logs/neo4j.log`):
+ 
+----
+Caused by: org.neo4j.kernel.api.exceptions.ProcedureException: Argument at position 0 in method `doSomething` is missing an `@Name` annotation.
+Please add the annotation, recompile the class and try again.
+----
+
+Nice error message! Just add the missing `@Name` on the only parameter, re-compile, package and deploy the JAR again, restart Neo4j and you're done!
+
+## Can we do better?
+
+
+ 
+ 
+ 
