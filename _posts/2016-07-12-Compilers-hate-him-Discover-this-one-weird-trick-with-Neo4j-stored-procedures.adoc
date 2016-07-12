@@ -75,7 +75,8 @@ https://github.com/fbiville/neo4j-sproc-compiler[neo4j-sproc-compiler] is born. 
 
 If Michael is happy, I am happy:
 
-image::images/michael-sproc-compiler-feedback.png[]
+image::https://raw.githubusercontent.com/fbiville/fbiville.github.io/master/images/michael-sproc-compiler-feedback.png[] 
+(I swear it's not photoshopped, see #apoc channel, 1st of July 2016 in Neo4j-Users https://neo4j-users.slack.com[Slack]).
 
 
 ## neo4j-sproc-compiler in action
@@ -91,5 +92,6 @@ You can use any build tool you want or directly `javac` if that floats your boat
 ## Conclusion
 
 Be cautious, most but *not* all checks can be performed at compile time. You'll still need to write some tests and monitor your deploys!
+
 Hopefully, this little utility that I wrote will shorten your development feedback loop and get your stored procedures harder, better, stronger and faster.
  
