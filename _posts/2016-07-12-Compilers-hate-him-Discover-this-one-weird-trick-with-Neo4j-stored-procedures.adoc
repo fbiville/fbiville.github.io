@@ -52,10 +52,21 @@ Nice error message! Just add the missing `@Name` on the only parameter, re-compi
 ## Can we do better?
 
 The previous example is quite trivial, but this back-and-forth could be repeated any times, especially when one is not much familiar with sprocs
-yet.
+yet. 
 
 Fortunately, most of the errors can be caught at compile time.
-Indeed, with 
+Indeed, since 
+
+## @Eureka!
+
+Annotations have been around in Java since end of 2004 (v1.5) and have come together with `apt` (now built in `javac`).
+
+What the latter does in brief (in long, read the https://www.jcp.org/en/jsr/detail?id=269[spec]) is to allow user-defined code to introspect a Java program at compile-time (original paper http://www.bracha.org/mirrors.pdf[here]) and possibly:
+
+ - issue compilation notices/warnings/errors
+ - generate static, source and/or bytecode files
  
  
+ 
+
  
