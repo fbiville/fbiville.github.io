@@ -6,7 +6,7 @@ The cool thing about this is you can directly interact with sprocs in Cypher, as
 
 ## Writing stored procedures
 
-During the preparation of my Neo4j in the latest https://www.facebook.com/GoCriteo/photos/pcb.1045385882181102/1045385698847787/?type=3[Criteo summit] (we're http://www.criteo.com/careers/#careers-browser[hiring]!), I started playing around with sprocs.
+During the preparation of my Neo4j introduction talk in the latest https://www.facebook.com/GoCriteo/photos/pcb.1045385882181102/1045385698847787/?type=3[Criteo summit] (we're http://www.criteo.com/careers/#careers-browser[hiring]!), I started playing around with sprocs.
 
 The process is quite simple:
 
