@@ -14,3 +14,12 @@ The process is quite simple:
  2. test it with the test harness
  3. deploy it to your Neo4j instance and that's it!
  
+Actually, step 3 may repeat itself quite a few times, Neo4j sprocs must comply to a few rules before your Neo4j server accepts to deploy it.
+
+## Sproc rules
+
+While rules are detailed in `@org.neo4j.procedure.Procedure` https://github.com/neo4j/neo4j/blob/3.0/community/kernel/src/main/java/org/neo4j/procedure/Procedure.java#L31[javadoc], we can summarize the rules as follows:
+
+ - a sproc is a method annotated with `@org.neo4j.procedure.Procedure`
+ - it must return a https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html[`java.util.stream.Stream<T>`] where T is a user-defined record type
+ - if the sproc accepts parameters, they all must be annotated with `@Name`
