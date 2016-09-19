@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Rant: The Teletubbies &quot;Documentation&quot; Pitfall</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//fbiville.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fbiville.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html" />
+    
+    <meta property="og:site_name" content="(10 piece) Puzzler" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Rant: The Teletubbies &quot;Documentation&quot; Pitfall" />
+    <meta property="og:description" content="Typical example Let me talk about a coding practice that I find profoundly disturbing. Get this code for instance: 	public SomeResult computeResult(SomeParameter parameter) { 		// call nice service to fetch foo 		Foo foo = niceService.fetchFoo(parameter); 		return new SomeResult..." />
+    <meta property="og:url" content="https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html" />
+    <meta property="article:published_time" content="2016-09-18T22:00:00.000Z" />
+    <meta property="article:modified_time" content="2016-09-19T12:21:54.130Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Rant: The Teletubbies &quot;Documentation&quot; Pitfall" />
+    <meta name="twitter:description" content="Typical example Let me talk about a coding practice that I find profoundly disturbing. Get this code for instance: 	public SomeResult computeResult(SomeParameter parameter) { 		// call nice service to fetch foo 		Foo foo = niceService.fetchFoo(parameter); 		return new SomeResult..." />
+    <meta name="twitter:url" content="https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "(10 piece) Puzzler",
+    "author": {
+        "@type": "Person",
+        "name": "Florent Biville",
+        "image": "https://avatars.githubusercontent.com/u/445792?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://fbiville.github.io"
+    },
+    "headline": "Rant: The Teletubbies &quot;Documentation&quot; Pitfall",
+    "url": "https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html",
+    "datePublished": "2016-09-18T22:00:00.000Z",
+    "dateModified": "2016-09-19T12:21:54.130Z",
+    "description": "Typical example Let me talk about a coding practice that I find profoundly disturbing. Get this code for instance: \tpublic SomeResult computeResult(SomeParameter parameter) { \t\t// call nice service to fetch foo \t\tFoo foo = niceService.fetchFoo(parameter); \t\treturn new SomeResult..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="(10 piece) Puzzler" href="https://fbiville.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://fbiville.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://fbiville.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Rant: The Teletubbies &quot;Documentation&quot; Pitfall</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-09-19">19 September 2016</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="sect1">
+<h2 id="_typical_example">Typical example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let me talk about a coding practice that I find profoundly disturbing.
+Get this code for instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">	public SomeResult computeResult(SomeParameter parameter) {
+
+		// call nice service to fetch foo
+		Foo foo = niceService.fetchFoo(parameter);
+
+		return new SomeResult(foo);
+	}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Basically, we have got some trivial calls to a service and use it
+for instanciating the result we are interested in.</p>
+</div>
+<div class="paragraph">
+<p>Do we need the comment, though?
+Obviously, we don&#8217;t!</p>
+</div>
+<div class="paragraph">
+<p>We are just adding noise!</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why I call it a Teletubbies documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teletu_what">Teletu-what?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Teletubbies, as you probably already know, is a TV show
+for very young children, created by the BBC.</p>
+</div>
+<div class="paragraph">
+<p>If you know the show, you know also that whenever a Teletubbies character
+does something, the following happens:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the character announces what it intends to do</p>
+</li>
+<li>
+<p>the voice-over paraphrases what the character just said</p>
+</li>
+<li>
+<p>the character does it</p>
+</li>
+<li>
+<p>optionally back to step 1</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This makes sense for very young children, part of education is based
+on repetition.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_back_to_our_example">Back to our example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So whenever I encounter a snippet of code like above, I immediately
+hear this annoying voice-over that just repeats something we
+already know.</p>
+</div>
+<div class="paragraph">
+<p>It is annoying because, well, we are not very young children.</p>
+</div>
+<div class="paragraph">
+<p>What&#8217;s the big deal, you might object?</p>
+</div>
+<div class="paragraph">
+<p>Well, comments like these can <strong>easily</strong> get out of sync.
+In the worst-case scenario, they become misleading.</p>
+</div>
+<div class="paragraph">
+<p>Easily, because comments don&#8217;t run, they are just an informal bunch
+of text and cannot be changed automatically (at least, not in a
+100% reliable way).</p>
+</div>
+<div class="paragraph">
+<p>To rephrase it, comments like this become part of the problem,
+not the solution.</p>
+</div>
+<div class="paragraph">
+<p>It leads to situations where you have to confront the current code
+and the outdated comment and you cannot really be sure which one
+describes what the behavior <strong>should</strong> be.</p>
+</div>
+<div class="paragraph">
+<p>Inline comments are just a liability.</p>
+</div>
+<div class="paragraph">
+<p>The worst part is that comments like this often appear as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">        public SomeResult computeResult(SomeParameter parameter) {
+
+                // call nice service to fetch foo
+                Foo foo = _niceService.fetchFoo(parameter);
+
+                // [...] 200 lines with comments+code like that
+                return new SomeResult(foo, ...);
+        }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Indeed, the bad side effect of this kind of brain-dead comments is
+that it <strong>prevents</strong> the original authors to take a step back and ask
+themselves: is the code readable enough this way?</p>
+</div>
+<div class="paragraph">
+<p>Or future authors: can the method I am changing  be improved?</p>
+</div>
+<div class="paragraph">
+<p>If you get used to this kind of comments, you will most likely focus
+your reading on them and live in the illusion that the method is
+readable.</p>
+</div>
+<div class="paragraph">
+<p>I have got some bad news for you: 200 lines of code for a method are
+NOT readable at all, no matter how much obsolete poetry you stick in there.</p>
+</div>
+<div class="paragraph">
+<p>As a general rule of thumb, is it worth writing something down if
+that only took you 10 seconds to come up with?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_not_so_noisy_example">A not-so-noisy example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s move on to a more interesting example.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s not that the first example does not happen frequently, but
+there are some situations like the following that involves a bit more
+than pure noise.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">        public SomeResult computeResult(SomeParameter parameter) {
+
+                /*
+                 * call nice service to fetch foo because
+                 * some contextual reasons
+                 *
+                 * fetchFoo may throw in theory but will not
+                 * because the parameter is always valid in
+                 * this particular usecase [...], so no try-catch,
+                 * YOLO
+                 */
+                Foo foo = _niceService.fetchFoo(parameter);
+
+                return new SomeResult(foo);
+        }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>"Ah! This comment is useful! It explains the implementation rationale!",
+you may say.</p>
+</div>
+<div class="paragraph">
+<p>While there is some value in these pieces of information, they just
+do not belong there.</p>
+</div>
+<div class="paragraph">
+<p>Let me elaborate.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_small_detour_back_to_basics">Small detour: back to basics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As you already know, in many programming languages, method signatures look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public SomeResult computeResult(SomeParameter parameter)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ideally, the signature should be explicit enough (especially with well-defined
+types, parametricity FTW) to know what the method does. How the method does it
+should be relevant only if you have to change something there.</p>
+</div>
+<div class="paragraph">
+<p>Everything that follows between curly braces is about <strong>implementation</strong> details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_back_to_the_example_again">Back to the example again</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>However, I would argue that the two information encoded as a inline comment
+above are NOT implementation details, yet they live in the implementation section.</p>
+</div>
+<div class="paragraph">
+<p>What are these comment sections about?</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the first part describe the intent behind the implementation (or at least
+part of it)</p>
+</li>
+<li>
+<p>the second and last part describe (part of) the observable behavior of the method</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intent_documentation">Intent documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Intents are very contextual and temporal.</p>
+</div>
+<div class="paragraph">
+<p>Decisions, no matter how small, are taken every day and guide the way
+we implement things.</p>
+</div>
+<div class="paragraph">
+<p>These decisions are influenced by temporal factors mostly: the assumptions made
+at the time may not hold at all anymore in 6 months, 1 year&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Temporal documentation.</p>
+</div>
+<div class="paragraph">
+<p><strong>TEMPORAL</strong> documentation.</p>
+</div>
+<div class="paragraph">
+<p>It rings a bell, somehow.</p>
+</div>
+<div class="paragraph">
+<p>S-C-M! Source Control Management tools like Git, Mercurial and friends.</p>
+</div>
+<div class="paragraph">
+<p>They play an important part in documentation. Not only do they intrinsically describe what
+has changed and when, they should describe <strong>why</strong> the changes were made.</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s what <strong>commit messages</strong> are for!</p>
+</div>
+<div class="paragraph">
+<p>And if you start thinking this way, there will be an additional benefit: you will keep
+your commits as small and focused as possible. If the commit is too big, there is no
+way you can explain all the important changes you made ;-)</p>
+</div>
+<div class="paragraph">
+<p>And if you start to care enough about your changelog, you will get nice readable
+releases notes for free!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_observable_behavior_documentation">Observable behavior documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If what you describe is part of the observable behavior of the scope you are
+modifying, then it is clearly about the contract you implicitly sign between the
+code you are implementing and its callers.</p>
+</div>
+<div class="paragraph">
+<p>The documentation is about the API. API is just a clever name for a set of
+accessible signatures. It is not an implementation detail at all, it should be
+near the method signature itself:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">        /**
+         * *describes the nominal observable behaviour here [...]*
+         *
+         * fetchFoo may throw in theory but will not
+         * because the parameter is always valid in this
+         * particular usecase [...], so no try-catch, YOLO
+         */
+        public SomeResult computeResult(SomeParameter parameter) {
+
+                Foo foo = _niceService.fetchFoo(parameter);
+
+                return new SomeResult(foo);
+        }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_end">The end</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The information is still there, it has been moved to the right place,
+that is all.</p>
+</div>
+<div class="paragraph">
+<p>I personally write inline comments less than 1% of the time I write code. This
+happens where there is a tiny local expression that may seem obscure and
+there is no simple way around it.</p>
+</div>
+<div class="paragraph">
+<p>For the 99+%, there are almost always better places to write the information
+you want to convey:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the code itself, it should answer <strong>WHAT</strong> it does, without ambiguity,
+else just refactor it (extract meanningful method, rename, split
+expressions&#8230;&#8203; the IDE is your friend)</p>
+</li>
+<li>
+<p>the *-doc (e.g. Javadoc, C#doc): the information is about the
+observable behavior of the section you are altering</p>
+</li>
+<li>
+<p>the intent: that should justify the commit you are about to push</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Inline comments are (99+%) dead! Long live inline comments!</p>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/445792?v=3)"><span class="hidden">Florent Biville's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Florent Biville</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Paris, France</span>
+                    <span class="author-link icon-link"><a href="http://fbiville.github.io">http://fbiville.github.io</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Rant%3A%20The%20Teletubbies%20%22Documentation%22%20Pitfall&amp;url=https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://fbiville.github.io/2016/09/19/Rant-The-Teletubbies-Documentation-Pitfall.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          var disqus_shortname = 'fbiville-github-io'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://fbiville.github.io">(10 piece) Puzzler</a> &copy; 2016</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//fbiville.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//fbiville.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
