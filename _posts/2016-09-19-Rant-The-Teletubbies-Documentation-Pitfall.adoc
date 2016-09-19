@@ -1,5 +1,10 @@
 = Rant: The Teletubbies "Documentation" Pitfall
 
+== Disclaimer
+
+I am not Uncle Bob's nephew, but if you already have read Clean Code, 
+chances are you will not learn much from this post.
+
 == Typical example
 
 Let me talk about a coding practice that I find profoundly disturbing.
@@ -55,20 +60,21 @@ What's the big deal, you might object?
 Well, comments like these can *easily* get out of sync. 
 In the worst-case scenario, they become misleading.
 
-Easily, because comments don't run, they are just an informal bunch
-of text and cannot be changed automatically (at least, not in a 
-100% reliable way). 
-
-To rephrase it, comments like this become part of the problem, 
-not the solution.
-
 It leads to situations where you have to confront the current code
 and the outdated comment and you cannot really be sure which one 
 describes what the behavior *should* be.
 
+Comments don't run, they are just an informal bunch of text 
+and cannot be changed automatically (at least, not in a 
+100% reliable way). Their risk of becoming obsolete is therefore
+higher.
+
+To rephrase it, comments like this are part of the problem, 
+not the solution.
+
 Inline comments are just a liability.
 
-The worst part is that comments like this often appear as follows:
+The worst part is that they often appear as a whole bunch:
 
 [source,java]
 ----
@@ -77,20 +83,20 @@ The worst part is that comments like this often appear as follows:
                 // call nice service to fetch foo
                 Foo foo = _niceService.fetchFoo(parameter);
 
-                // [...] 200 lines with comments+code like that
+				// [...] 200 lines with comments+code like that
+                // hilarity ensues... not
                 return new SomeResult(foo, ...);
         }
 ----
 
 Indeed, the bad side effect of this kind of brain-dead comments is
-that it *prevents* the original authors to take a step back and ask 
-themselves: is the code readable enough this way? 
-
-Or future authors: can the method I am changing  be improved?
+that it *prevents* the original authors to ask themselves: is the code 
+readable enough this way? Am I thinking this through? How can I make
+the code more self-explanatory?
 
 If you get used to this kind of comments, you will most likely focus
 your reading on them and live in the illusion that the method is 
-readable.
+readable and well-documented.
 
 I have got some bad news for you: 200 lines of code for a method are
 NOT readable at all, no matter how much obsolete poetry you stick in there.
@@ -217,23 +223,59 @@ near the method signature itself:
         }
 ----
 
+== Going further
+
+You could even rewrite the method like this:
+
+[source,java]
+----
+        /**
+         * *describes the nominal observable behaviour here [...]*
+         */
+        public SomeResult computeResult(SomeParameter parameter) {
+                try {
+                        Foo foo = _niceService.fetchFoo(parameter);
+                        return new SomeResult(foo);
+                }
+                catch (MyNiceServiceException e) {
+                        throw new AssertionError("Should not happen", e);
+                }
+        }
+----
+
+Now the assumptions are even more explicit. That opens even an interesting 
+discussion about the virtues of https://www.youtube.com/watch?v=57P86oZXjXs[failing fast] :-)
+
+One could argue we could do even better.
+Ideally, method signatures should be sufficient to tell what the method is doing: http://data.tmorris.net/talks/yow-west-2016/1d388b6263e7cbeedfbea224997648daa1d7862d/parametricity.pdf[parametricity] FTW!
+Hoogle.com is probably one of the best illustrations for this.
+
+That requires discipline (especially with languages such as Java, C# et al), 
+but is not impossible to achieve: try to minimize and contain side effects, 
+forego nulls...
+
+Yet another interesting discussion!
+
 == The end
 
-The information is still there, it has been moved to the right place, 
-that is all.
+As you can see, caring about documentation is a gateway drug to better 
+software, clearer releases and happier collaborators.
 
-I personally write inline comments less than 1% of the time I write code. This
+I personally write comments less than 1% of the time I write code. This
 happens where there is a tiny local expression that may seem obscure and
-there is no simple way around it.
+there is not simple way around it.
 
 For the 99+%, there are almost always better places to write the information 
 you want to convey:
 
  - the code itself, it should answer *WHAT* it does, without ambiguity, 
-else just refactor it (extract meanningful method, rename, split 
-expressions... the IDE is your friend)
- - the *-doc (e.g. Javadoc, C#doc): the information is about the 
+else just refactor it (extract meaningful methods, rename, split 
+expressions... the IDE is your friend). This is the material that
+decays the least, rely on this as much as you can!
+
+ - the *-doc (e.g. Javadoc, Csharpdoc): the information is about the 
 observable behavior of the section you are altering
+
  - the intent: that should justify the commit you are about to push
 
 Inline comments are (99+%) dead! Long live inline comments!
