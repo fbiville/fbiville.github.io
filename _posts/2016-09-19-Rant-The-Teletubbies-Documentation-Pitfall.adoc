@@ -245,7 +245,7 @@ Hoogle.com is probably one of the best illustrations for this.
 
 That requires discipline (especially with languages such as Java, C# et al), 
 but is not impossible to achieve: try to minimize and contain side effects, 
-forego nulls...
+forego nulls... and then types could convery a lot more useful information!
 
 Yet another interesting discussion!
 
