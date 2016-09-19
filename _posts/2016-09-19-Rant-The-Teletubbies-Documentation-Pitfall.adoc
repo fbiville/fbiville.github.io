@@ -12,13 +12,11 @@ Get this code for instance:
 
 [source,java]
 ----
-	public SomeResult computeResult(SomeParameter parameter) {
-	
-		// call nice service to fetch foo
-		Foo foo = niceService.fetchFoo(parameter);
-
-		return new SomeResult(foo);
-	}
+public SomeResult computeResult(SomeParameter parameter) {
+	// call nice service to fetch foo
+	Foo foo = niceService.fetchFoo(parameter);
+	return new SomeResult(foo);
+}
 ----
 
 Basically, we have got some trivial calls to a service and use it
@@ -78,15 +76,14 @@ The worst part is that they often appear as a whole bunch:
 
 [source,java]
 ----
-        public SomeResult computeResult(SomeParameter parameter) {
+public SomeResult computeResult(SomeParameter parameter) {
+	// call nice service to fetch foo
+	Foo foo = _niceService.fetchFoo(parameter);
 
-                // call nice service to fetch foo
-                Foo foo = _niceService.fetchFoo(parameter);
-
-				// [...] 200 lines with comments+code like that
-                // hilarity ensues... not
-                return new SomeResult(foo, ...);
-        }
+	// [...] 200 lines with comments+code like that
+	// hilarity ensues... not
+	return new SomeResult(foo, ...);
+}
 ----
 
 Indeed, the bad side effect of this kind of brain-dead comments is
@@ -114,21 +111,19 @@ than pure noise.
 
 [source,java]
 ----
-        public SomeResult computeResult(SomeParameter parameter) {
-
-                /* 
-                 * call nice service to fetch foo because
-                 * some contextual reasons
-                 *
-                 * fetchFoo may throw in theory but will not
-                 * because the parameter is always valid in 
-                 * this particular usecase [...], so no try-catch, 
-                 * YOLO
-                 */
-                Foo foo = _niceService.fetchFoo(parameter);
-
-                return new SomeResult(foo);
-        }
+public SomeResult computeResult(SomeParameter parameter) {
+  	/* 
+   	 * call nice service to fetch foo because
+   	 * some contextual reasons
+   	 *
+   	 * fetchFoo may throw in theory but will not
+   	 * because the parameter is always valid in 
+   	 * this particular usecase [...], so no try-catch, 
+   	 * YOLO
+   	 */
+  	Foo foo = _niceService.fetchFoo(parameter);
+	return new SomeResult(foo);
+}
 ----
 
 "Ah! This comment is useful! It explains the implementation rationale!",
@@ -208,19 +203,17 @@ near the method signature itself:
 
 [source,java]
 ----
-        /**
-         * *describes the nominal observable behaviour here [...]*
-         *
-         * fetchFoo may throw in theory but will not
-         * because the parameter is always valid in this 
-         * particular usecase [...], so no try-catch, YOLO
-         */
-        public SomeResult computeResult(SomeParameter parameter) {
-
-                Foo foo = _niceService.fetchFoo(parameter);
-
-                return new SomeResult(foo);
-        }
+/**
+ * *describes the nominal observable behaviour here [...]*
+ *
+ * fetchFoo may throw in theory but will not
+ * because the parameter is always valid in this 
+ * particular usecase [...], so no try-catch, YOLO
+ */
+public SomeResult computeResult(SomeParameter parameter) {
+	Foo foo = _niceService.fetchFoo(parameter);
+	return new SomeResult(foo);
+}
 ----
 
 == Going further
@@ -229,18 +222,18 @@ You could even rewrite the method like this:
 
 [source,java]
 ----
-        /**
-         * *describes the nominal observable behaviour here [...]*
-         */
-        public SomeResult computeResult(SomeParameter parameter) {
-                try {
-                        Foo foo = _niceService.fetchFoo(parameter);
-                        return new SomeResult(foo);
-                }
-                catch (MyNiceServiceException e) {
-                        throw new AssertionError("Should not happen", e);
-                }
-        }
+/**
+ * *describes the nominal observable behaviour here [...]*
+ */
+public SomeResult computeResult(SomeParameter parameter) {
+	try {
+		Foo foo = _niceService.fetchFoo(parameter);
+		return new SomeResult(foo);
+	}
+	catch (MyNiceServiceException e) {
+		throw new AssertionError("Should not happen", e);
+	}
+}
 ----
 
 Now the assumptions are even more explicit. That opens even an interesting 
