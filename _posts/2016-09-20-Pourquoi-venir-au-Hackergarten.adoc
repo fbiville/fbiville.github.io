@@ -4,7 +4,7 @@ Qu'on se le dise, les logiciels Open Source sont partout.
 Il y a fort à parier que vous les utilisiez directement 
 voire en développiez dans votre activité professionnelle. 
 Il demeure indéniable que vous en bénéficiez dans votre 
-vie quotidienne, même indirectement. 
+vie quotidienne, même indirectement.
 
 
 == Hackers: we need you!
@@ -39,17 +39,14 @@ Chacun y retrouve son compte :
  heures, et non pas en quelques jours
 
 Lors de la dernière soirée, un binôme a réussi à soumettre 
-une évolution au projet Apache Maven ! Ils ont pourtant
+une https://github.com/apache/maven-shared/pull/13[pull request] 
+au projet Apache Maven ! Ils ont pourtant
 commencé la soirée sans connaissances préalables de la base 
-de code. 
+de code. Merci à Hervé pour le mentoring au passage !
 
 Tous les hackers sont bienvenus ! Ne vous auto-censurez pas
 en pensant que vous n'avez pas le niveau, ça n'est pas vrai ! ;-)
 
-Nous avons la chance d'avoir Hervé Boutémy parmi les mentors, 
-committer Maven, qui se rend disponible à chaque session 
-pour aiguiller les hackers et ainsi leur permettre de faire 
-avancer le projet.
 
 == Appel aux mentors
 
