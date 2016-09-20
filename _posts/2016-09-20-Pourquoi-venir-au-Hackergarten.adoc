@@ -73,4 +73,4 @@ prochainement dédiée au développement iOS, stay tuned! ;-)
 
 Nous nous efforçons d'organiser le http://www.meetup.com/Paris-Hackergarten/[Paris Hackergarten] tous les derniers mardis du mois, dans les locaux de Xebia.
 
-Le prochain aura donc lieu le 27 Septembre, j'espère donc vous y voir !
+Le http://www.meetup.com/Paris-Hackergarten/events/231855753/[prochain] aura donc lieu le 27 Septembre, j'espère donc vous y voir !
