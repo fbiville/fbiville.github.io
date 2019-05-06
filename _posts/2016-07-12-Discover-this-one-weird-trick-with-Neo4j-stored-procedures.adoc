@@ -1,2 +1,0 @@
-# Discover this one weird trick with Neo4j stored procedures
-
