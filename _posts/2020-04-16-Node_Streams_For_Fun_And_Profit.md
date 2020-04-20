@@ -806,7 +806,7 @@ Backpressure happens when downstream streams cannot keep up with upstream stream
 
 The good news is that `Readable#pipe` handles backpressure "for free" (and I assume `pipeline` as well).
 
-That being said, do our custom implementations of `zip` and `map` [handle backpressure correctly](https://nodejs.org/es/docs/guides/backpressuring-in-streams/#rules-to-abide-by-when-implementing-custom-streams)?
+That being said, do our custom implementations of `zip` and `map` [handle backpressure correctly](https://nodejs.org/en/docs/guides/backpressuring-in-streams/#rules-to-abide-by-when-implementing-custom-streams)?
 
 Spoiler alert: I'm afraid not.
 
