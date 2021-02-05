@@ -100,12 +100,12 @@ The above "fluent" example works because `Readable#pipe` returns the reference t
 `Transform` (or more generally, `Duplex`) streams have two sides, so they can be piped to (`Writable` side) and then from (`Readable` side) via a new `pipe` call.
 
 However, this is not necessarily the best way to define a **linear** pipeline though.
-One important limitation is that `pipe` does **not** propagate errors from an upstream stream to the next downstream one.
+One important limitation is that `pipe` does not offer any particular assistance when it comes to error handling.
 
 > Emphasis on linear here. Streams can be piped from and to several times, so you can end up with graph-shaped pipelines.
 
 A more robust alternative in case of linear pipelines is to use the built-in `pipeline` function.
-It automatically forwards errors and must be called with:
+It must be called with:
 
  - 1 `Readable` stream (a.k.a. the source)
  - 0..n `Duplex` stream (a.k.a. intermediates)
@@ -131,6 +131,8 @@ pipeline(
 ```
 
 You can also provide a callback that will be invoked when the pipeline completes, abnormally (i.e. when an error occurs) or not.
+
+> `pipeline` invokes the completion callback even if any of the streams' setting `autoDestroy` is set to `false`.
 
 > `pipeline` actually supports more than streams but that's out of scope for this article.
 > Feel free to check [the documentation](https://nodejs.org/api/stream.html#stream_stream_pipeline_source_transforms_destination_callback) to learn about other usages.
@@ -470,6 +472,7 @@ Results are pushed to consumers via [`Readable#push`](https://nodejs.org/api/str
 
 Let's have a crack at it:
 ```javascript
+// DO NOT USE IN PRODUCTION - SEE BELOW FOR DETAILS
 const { Readable } = require("stream");
 
 class ZipReadable extends Readable {
@@ -542,6 +545,7 @@ Lucky for us, nothing prevents `Readable#push`, or even `Readable#_read` from be
 
 Let's try again (and add a few temporary logs while we're at it):
 ```javascript
+// DO NOT USE IN PRODUCTION - SEE BELOW FOR DETAILS
 const { Readable } = require("stream");
 
 class ZipReadable extends Readable {
